@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace CaseStudy2
+namespace WebApiDemo
 {
     public class Startup
     {
@@ -21,10 +21,16 @@ namespace CaseStudy2
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime.
+        //Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //Once instance of type PatientMemoryDBRepository created - Any number of Resolve request
+            //services.AddSingleton<Repository.IUserDataRepository, Repository.UserMemoryDBRepository>();
+            //One instace/ Request
+            //services.AddTransient<Repository.IPatientDataRepository, Repository.PatientMemoryDBRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +43,7 @@ namespace CaseStudy2
 
             app.UseRouting();
 
-            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
