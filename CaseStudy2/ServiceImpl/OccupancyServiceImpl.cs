@@ -6,7 +6,8 @@ namespace CaseStudy2.ServiceImpl
 {
     public class OccupancyServiceImpl:IOccupancyService
     {
-        readonly string cs = @"URI=file:C:\Bootcamp\CaseStudy2\alert-to-care-s22b6\test.db";
+        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy-2\alert-to-care-s22b6\test.db";
+        MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
        
         public bool CheckBedStatus(int id)
         {
@@ -33,8 +34,34 @@ namespace CaseStudy2.ServiceImpl
             using var con = new SQLiteConnection(cs);
             con.Open();
             using var cmd = new SQLiteCommand(con);
-            cmd.CommandText = "INSERT INTO patientsDetails(name, address,email) VALUES('" + newState.Name+"','"+ newState.Address+ "','" + newState.Email+ "')";
+            cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate) VALUES('" + newState.Name+"','"+ newState.Address+ "','" + newState.Email+ "'," + newState.Bpm + "," + newState.Spo2 + ","+newState.RespRate + ")";
             cmd.ExecuteNonQuery();
+        }
+        public bool DishchargePatient(int id)
+        {
+            
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select bpm,spo2,respRate from patientsDetails where id =" + id;
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            bool status = false;
+            if (rdr.Read())
+            {
+                var bpm = rdr.GetDouble(0);
+                var spo2 = rdr.GetDouble (1);
+                var resprate = rdr.GetDouble(2);
+                if (_monitorServiceImpl.VitalsAreOk(bpm, spo2, resprate) == true)
+                {
+                    status =  true;
+                }
+                else
+                {
+                    status =  false;
+                }
+            }
+            return status;
+
         }
     }
 }

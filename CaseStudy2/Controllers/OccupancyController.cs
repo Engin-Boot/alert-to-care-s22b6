@@ -86,6 +86,23 @@ namespace CaseStudy2.Controllers
             
 
         }
+        [HttpGet("discharge/{id}")]
+        public Object Dishcharge(int id)
+        {
+            try
+            {
+                return Ok(_occupancyService.DishchargePatient(id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                Console.ReadLine();
+                return HttpStatusCode.InternalServerError;
+            }
+
+
+        }
+
         [HttpPost]
         public String AddPatient([FromBody] Model.PatientData value)
         {
