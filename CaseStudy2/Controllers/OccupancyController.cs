@@ -17,7 +17,9 @@ namespace CaseStudy2.Controllers
         {
             _occupancyService = repo;
         }
+
         
+
 
 
         // GET: api/<ValuesController>

@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace CaseStudy2.ServiceImpl
 {
     public class MonitorServiceImpl :IMonitorService
     {
-        
+        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         public bool BpmIsOk(Double bpm, Double minBpm, Double maxBpm)
         {
             if (bpm < minBpm || bpm > maxBpm)
@@ -38,6 +39,74 @@ namespace CaseStudy2.ServiceImpl
             if (BpmAndSpo2AreOk(bpm, spo2) && RespRateIsOk(respRate, 30, 95))
                 return true;
             return false;
+        }
+
+        public bool MonitorRespRate(int id)
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select respRate from patientsDetails where id =" + id;
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            bool status = false;
+            if (rdr.Read())
+            {
+                var respRate = rdr.GetDouble(0);
+                if (RespRateIsOk(respRate, 30, 95) == true)
+                {
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            return status;
+        }
+
+        public bool Monitorspo2s(int id)
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select spo2 from patientsDetails where id =" + id;
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            bool status = false;
+            if (rdr.Read())
+            {
+                var spo2 = rdr.GetDouble(0);
+                if (Spo2IsOk(spo2, 90) == true)
+                {
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            return status;
+        }
+        public bool Monitorbpm(int id)
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select bpm from patientsDetails where id =" + id;
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            bool status = false;
+            if (rdr.Read())
+            {
+                var bpm = rdr.GetDouble(0);
+                if (BpmIsOk(bpm, 70,150) == true)
+                {
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+            }
+            return status;
         }
     }
 }

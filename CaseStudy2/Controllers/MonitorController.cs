@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CaseStudy2.Service;
+using CaseStudy2.ServiceImpl;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,36 +14,41 @@ namespace CaseStudy2.Controllers
     [ApiController]
     public class MonitorController : ControllerBase
     {
-        // GET: api/<MonitorController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        readonly Service.IMonitorService monitorService;
+        
+        public MonitorController(Service.IMonitorService repo)
         {
-            return new string[] { "value1", "value2" };
+            monitorService = repo;
+        }
+       
+        [HttpGet("resperatoryRate/{id}")]
+        public string MonitorRespRates(int id)
+        {
+            if (monitorService.MonitorRespRate(id) == false)
+            {
+                return "Resperatory rate is not ok for the patient id : " + id;
+            }
+            return "Resperatory rate is good for the patient id : " + id;
         }
 
-        // GET api/<MonitorController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("spo2/{id}")]
+        public string Monitorspo2s(int id)
         {
-            return "value";
+            if (monitorService.Monitorspo2s(id) == false)
+            {
+                return "Spo2  is not ok for the patient id : " + id;
+            }
+            return "Spo2 is good for the patient id : " + id;
         }
 
-        // POST api/<MonitorController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("bpm/{id}")]
+        public string Monitorbpms(int id)
         {
-        }
-
-        // PUT api/<MonitorController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MonitorController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (monitorService.Monitorbpm(id) == false)
+            {
+                return "BPM  is not ok for the patient id : " + id;
+            }
+            return "BPM is good for the patient id : " + id;
         }
     }
 }

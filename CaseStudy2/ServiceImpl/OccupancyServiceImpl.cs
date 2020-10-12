@@ -6,7 +6,7 @@ namespace CaseStudy2.ServiceImpl
 {
     public class OccupancyServiceImpl:IOccupancyService
     {
-        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy-2\alert-to-care-s22b6\test.db";
+        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
        
         public bool CheckBedStatus(int id)
