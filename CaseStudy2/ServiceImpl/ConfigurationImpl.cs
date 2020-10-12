@@ -10,7 +10,7 @@ namespace CaseStudy2.ServiceImpl
 {
     public class ConfigurationImpl : IIcuConfigurationService
     {
-        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy-2\alert-to-care-s22b6\test.db";
+        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         public void AddNewIcu(Model.IcuSetUpData newState)
         {
             
