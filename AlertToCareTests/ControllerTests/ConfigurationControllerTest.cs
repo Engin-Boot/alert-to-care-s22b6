@@ -28,7 +28,7 @@ namespace AlertToCareTests.ControllerTests
             icudata.IcuId = 2;
             icudata.BedsCount = 3;
             icudata.Layout = "CIRCLE";
-            string result = configurationController.AddIcu(null);
+            string result = configurationController.AddIcu(icudata);
             Assert.Equal("New Icu Configuration Successfull", result);
         }
     }

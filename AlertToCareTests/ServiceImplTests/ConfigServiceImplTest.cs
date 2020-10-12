@@ -6,5 +6,6 @@ namespace AlertToCareTests.ServiceImplTests
 {
     class ConfigServiceImplTest
     {
+
     }
 }

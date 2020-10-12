@@ -37,5 +37,12 @@ namespace AlertToCareTests.ControllerTests
             var result = occupancyController.BedStatus(1);
             Assert.IsType<OkObjectResult>(result);
         }
+
+        [Fact]
+        public void DischargePatientsTests()
+        {
+            var result = occupancyController.Dishcharge(1);
+            Assert.IsType<OkObjectResult>(result);
+        }
     }
 }
