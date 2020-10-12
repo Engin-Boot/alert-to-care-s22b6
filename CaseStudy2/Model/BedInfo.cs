@@ -7,9 +7,9 @@ namespace CaseStudy2.Model
 {
     public class BedInfo
     {
-        public string FloorNumber { get; set; }
-        public string WingNumber { get; set; }
-        public int BedNumber { get; set; }
+        public string IcuId { get; set; }
+        public string BedId { get; set; }
+        public int PatientId { get; set; }
         
     }
 }

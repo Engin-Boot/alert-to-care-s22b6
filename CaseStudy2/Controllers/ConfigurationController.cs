@@ -32,7 +32,7 @@ namespace CaseStudy2.Controllers
         {
             return "value";
         }
-
+        [HttpPost]
         // POST api/<ConfigurationController>
         public String AddIcu([FromBody] Model.IcuSetUpData value)
         {

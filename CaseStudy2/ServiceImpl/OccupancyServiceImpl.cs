@@ -6,7 +6,7 @@ namespace CaseStudy2.ServiceImpl
 {
     public class OccupancyServiceImpl:IOccupancyService
     {
-        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
+        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy-2\alert-to-care-s22b6\test.db";
         MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
        
         public bool CheckBedStatus(int id)
@@ -34,7 +34,7 @@ namespace CaseStudy2.ServiceImpl
             using var con = new SQLiteConnection(cs);
             con.Open();
             using var cmd = new SQLiteCommand(con);
-            cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate) VALUES('" + newState.Name+"','"+ newState.Address+ "','" + newState.Email+ "'," + newState.Bpm + "," + newState.Spo2 + ","+newState.RespRate + ")";
+            cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate,icuId,bedId) VALUES('" + newState.Name + "','" + newState.Address + "','" + newState.Email + "'," + newState.Bpm + "," + newState.Spo2 + "," + newState.RespRate + "," + newState.IcuId + ",'" + newState.BedId + "')";
             cmd.ExecuteNonQuery();
         }
         public bool DishchargePatient(int id)

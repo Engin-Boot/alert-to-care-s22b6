@@ -17,7 +17,7 @@ namespace CaseStudy2.ServiceImpl
             using var con = new SQLiteConnection(cs);
             con.Open();
             using var cmd = new SQLiteCommand(con);
-            cmd.CommandText = "INSERT INTO IcuData(NumberOfBeds,BedName,LayoutOfBeds) VALUES('" + newState.BedsCount + "','" + newState.BedId + "','" + newState.Layout + "')";
+            cmd.CommandText = "INSERT INTO Icu(NumberOfBeds,LayoutOfBeds) VALUES('"+ newState.BedsCount + "','" + newState.Layout + "')";
             cmd.ExecuteNonQuery();
         }
     }
