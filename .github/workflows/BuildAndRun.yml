@@ -20,8 +20,9 @@ jobs:
       with:
         dotnet-version: 3.1.301
 
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
-        
-    - name: Run unit tests
-      run: dotnet test --logger "console;verbosity=detailed";
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
