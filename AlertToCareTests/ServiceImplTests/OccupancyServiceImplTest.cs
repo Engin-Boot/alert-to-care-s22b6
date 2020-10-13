@@ -27,13 +27,13 @@ namespace AlertToCareTests.ServiceImplTests
             patientData.IcuId = 10;
             patientData.BedId = "B1";
         }
-        [Fact]
-        public void CheckBedStatusTest()
+       // [Fact]
+       /* public void CheckBedStatusTest()
         {
             string s = "bedId";
             var result = occupancyServiceImpl.CheckBedStatus(s);
             Assert.IsType<bool>(result);
-        }
+        }*/
         [Fact]
         public void DischargePatientTest()
         {
