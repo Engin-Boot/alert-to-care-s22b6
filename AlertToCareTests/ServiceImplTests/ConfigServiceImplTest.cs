@@ -9,7 +9,7 @@ namespace AlertToCareTests.ServiceImplTests
 {
     public class ConfigServiceImplTest
     {
-        IcuSetUpData _icuSetUpData = new IcuSetUpData();
+        /* IcuSetUpData _icuSetUpData = new IcuSetUpData();
         ConfigurationImpl configurationImpl = new ConfigurationImpl();
         public ConfigServiceImplTest()
         {
@@ -18,7 +18,7 @@ namespace AlertToCareTests.ServiceImplTests
             _icuSetUpData.Layout = "Cr";
         }
 
-        /*[Fact]
+       [Fact]
         public void AddIcuTest()
         {
 

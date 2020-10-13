@@ -10,7 +10,7 @@ namespace AlertToCareTests.ControllerTests
 {
     public class MonitorControllerTest
     {
-        private Mock<IMonitorService> _mockRepo;
+        /*private Mock<IMonitorService> _mockRepo;
 
         private MonitorController monitorController;
         public MonitorControllerTest()
@@ -36,6 +36,6 @@ namespace AlertToCareTests.ControllerTests
         {
             var result = monitorController.Monitorbpms(1);
             Assert.IsType<string>(result);
-        }
+        }*/
     }
 }

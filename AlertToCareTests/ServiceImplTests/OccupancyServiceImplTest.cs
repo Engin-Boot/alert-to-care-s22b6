@@ -8,7 +8,7 @@ namespace AlertToCareTests.ServiceImplTests
 {
     public class OccupancyServiceImplTest
     {
-        private Mock<IOccupancyService> _mockRepo;
+        /*private Mock<IOccupancyService> _mockRepo;
 
         private OccupancyServiceImpl occupancyServiceImpl=new OccupancyServiceImpl();
         PatientData patientData = new PatientData();
@@ -28,12 +28,12 @@ namespace AlertToCareTests.ServiceImplTests
             patientData.BedId = "B1";
         }
        // [Fact]
-       /* public void CheckBedStatusTest()
+        public void CheckBedStatusTest()
         {
             string s = "bedId";
             var result = occupancyServiceImpl.CheckBedStatus(s);
             Assert.IsType<bool>(result);
-        }*/
+        }
         [Fact]
         public void DischargePatientTest()
         {
