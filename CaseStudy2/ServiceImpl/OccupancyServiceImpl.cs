@@ -29,13 +29,18 @@ namespace CaseStudy2.ServiceImpl
             return false;
         }
 
-        public void AddNewPatient(PatientData newState)
+        public bool AddNewPatient(PatientData newState)
         {
-            using var con = new SQLiteConnection(cs);
-            con.Open();
-            using var cmd = new SQLiteCommand(con);
-            cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate,icuId,bedId) VALUES('" + newState.Name + "','" + newState.Address + "','" + newState.Email + "'," + newState.Bpm + "," + newState.Spo2 + "," + newState.RespRate + "," + newState.IcuId + ",'" + newState.BedId + "')";
-            cmd.ExecuteNonQuery();
+            if (newState != null)
+            {
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                using var cmd = new SQLiteCommand(con);
+                cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate,icuId,bedId) VALUES('" + newState.Name + "','" + newState.Address + "','" + newState.Email + "'," + newState.Bpm + "," + newState.Spo2 + "," + newState.RespRate + "," + newState.IcuId + ",'" + newState.BedId + "')";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            return false;
         }
         public bool DishchargePatient(int id)
         {

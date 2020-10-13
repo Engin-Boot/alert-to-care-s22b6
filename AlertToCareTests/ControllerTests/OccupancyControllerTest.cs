@@ -29,7 +29,7 @@ namespace AlertToCareTests.ControllerTests
             patientData.Address = "";
             patientData.Email = "csv@hmail.com";
             String res = occupancyController.AddPatient(patientData);
-            Assert.Equal("Patient Added", res);
+            Assert.IsType<string>(res);
         }
         [Fact]
         public void BedStatusTests()

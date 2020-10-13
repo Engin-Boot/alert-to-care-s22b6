@@ -108,8 +108,8 @@ namespace CaseStudy2.Controllers
         [HttpPost]
         public String AddPatient([FromBody] Model.PatientData value)
         {
-            _occupancyService.AddNewPatient(value);
-            return "Patient Added";
+            var res =_occupancyService.AddNewPatient(value);
+            return "Patient Added:"+ res.ToString();
         }
 
 

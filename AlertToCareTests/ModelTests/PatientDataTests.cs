@@ -6,5 +6,6 @@ namespace AlertToCareTests.ModelTests
 {
     class PatientDataTests
     {
+
     }
 }

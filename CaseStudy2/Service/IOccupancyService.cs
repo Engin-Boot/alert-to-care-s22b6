@@ -9,7 +9,7 @@ namespace CaseStudy2.Service
     {
         public bool CheckBedStatus(int id);
 
-        void AddNewPatient(Model.PatientData newState);
+        public bool AddNewPatient(Model.PatientData newState);
 
         public bool DishchargePatient(int id);
     }
