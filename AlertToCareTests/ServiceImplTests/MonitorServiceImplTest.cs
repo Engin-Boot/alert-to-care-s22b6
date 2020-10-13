@@ -11,7 +11,7 @@ namespace AlertToCareTests.ServiceImplTests
 {
    public class MonitorServiceImplTest
    {
-        private Mock<IMonitorService> _mockRepo;
+        /*private Mock<IMonitorService> _mockRepo;
 
         private MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
 
@@ -68,6 +68,6 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.MonitorRespRate(1);
             Assert.IsType<bool>(result);
         }
-
+        */
     }
 }
