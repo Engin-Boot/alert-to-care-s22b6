@@ -10,6 +10,14 @@ namespace CaseStudy2.ServiceImpl
     public class MonitorServiceImpl :IMonitorService
     {
         readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
+        System.Data.SQLite.SQLiteConnection con;
+        System.Data.SQLite.SQLiteCommand cmd;
+
+        public MonitorServiceImpl()
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+        }
         public bool BpmIsOk(Double bpm, Double minBpm, Double maxBpm)
         {
             if (bpm < minBpm || bpm > maxBpm)
@@ -43,8 +51,7 @@ namespace CaseStudy2.ServiceImpl
 
         public bool MonitorRespRate(int id)
         {
-            using var con = new SQLiteConnection(cs);
-            con.Open();
+            
             string stm = "select respRate from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -66,8 +73,7 @@ namespace CaseStudy2.ServiceImpl
 
         public bool Monitorspo2s(int id)
         {
-            using var con = new SQLiteConnection(cs);
-            con.Open();
+           
             string stm = "select spo2 from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -88,8 +94,7 @@ namespace CaseStudy2.ServiceImpl
         }
         public bool Monitorbpm(int id)
         {
-            using var con = new SQLiteConnection(cs);
-            con.Open();
+            
             string stm = "select bpm from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
