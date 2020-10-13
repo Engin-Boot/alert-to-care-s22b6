@@ -21,7 +21,7 @@ namespace AlertToCareTests.ControllerTests
             _mockRepo = new Mock<IIcuConfigurationService>();
             configurationController = new ConfigurationController(_mockRepo.Object);
         }
-        [Fact]
+     /*   [Fact]
         public void AddIcuTest()
         {
             IcuSetUpData icudata = new IcuSetUpData();
@@ -30,6 +30,6 @@ namespace AlertToCareTests.ControllerTests
             icudata.Layout = "CIRCLE";
             string result = configurationController.AddIcu(icudata);
             Assert.IsType<string>(result);
-        }
+        }*/
     }
 }

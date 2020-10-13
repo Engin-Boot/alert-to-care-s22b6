@@ -40,12 +40,12 @@ namespace AlertToCareTests.ServiceImplTests
             var result = occupancyServiceImpl.DishchargePatient(1);
             Assert.IsType<bool>(result);
         }
-        [Fact]
+      /*  [Fact]
         public void AddPatientTest()
         {
 
             var result = occupancyServiceImpl.AddNewPatient(patientData);
             Assert.IsType<bool>(result);
-        }
+        }*/
     }
 }

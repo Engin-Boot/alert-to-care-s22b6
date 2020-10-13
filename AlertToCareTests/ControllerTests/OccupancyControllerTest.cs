@@ -18,8 +18,8 @@ namespace AlertToCareTests.ControllerTests
             _mockRepo = new Mock<IOccupancyService>();
             occupancyController = new OccupancyController(_mockRepo.Object);
         }
-        [Fact]
-        public void AddPatientsTests()
+       // [Fact]
+     /*   public void AddPatientsTests()
         {
             PatientData patientData = new PatientData();
             patientData.Name = "CSv";
@@ -30,7 +30,7 @@ namespace AlertToCareTests.ControllerTests
             patientData.Email = "csv@hmail.com";
             String res = occupancyController.AddPatient(patientData);
             Assert.IsType<string>(res);
-        }
+        }*/
         [Fact]
         public void BedStatusTests()
         {

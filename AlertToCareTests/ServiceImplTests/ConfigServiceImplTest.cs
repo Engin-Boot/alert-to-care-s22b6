@@ -18,12 +18,12 @@ namespace AlertToCareTests.ServiceImplTests
             _icuSetUpData.Layout = "Cr";
         }
 
-        [Fact]
+        /*[Fact]
         public void AddIcuTest()
         {
 
             var result = configurationImpl.AddNewIcu(_icuSetUpData);
             Assert.IsType<bool>(result);
-        }
+        }*/
     }
 }
