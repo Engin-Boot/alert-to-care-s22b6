@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using CaseStudy2.Model;
+using System.Collections.Generic;
+using System.Data.SQLite;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,7 +13,8 @@ namespace CaseStudy2.Controllers
     [ApiController]
     public class OccupancyController : ControllerBase
     {
-        //readonly string cs = @"URI=file:C:\csvfolder\test.db";
+        
+        //readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         readonly Service.IOccupancyService _occupancyService;
        // OccupancyServiceImpl occupancyServiceImpl = new OccupancyServiceImpl();
         public OccupancyController(Service.IOccupancyService repo)
@@ -18,7 +22,7 @@ namespace CaseStudy2.Controllers
             _occupancyService = repo;
         }
 
-        
+
 
 
 
@@ -72,9 +76,24 @@ namespace CaseStudy2.Controllers
                }
                return crDt;
            }*/
+        [HttpGet]
+        public List<PatientData> GetPatientsDetails()
+        {
+            try
+            {
+                var res = _occupancyService.GetPatientsDetails();
+                return res;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
 
-        [HttpGet("{id}")]
-        public Object BedStatus(int id)
+        }
+
+        [HttpGet("bedStatus/{id}")]
+        public Object BedStatus( string id)
         {
             try { 
                 return Ok(_occupancyService.CheckBedStatus(id)); 

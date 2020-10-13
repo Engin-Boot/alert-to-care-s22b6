@@ -34,7 +34,7 @@ namespace AlertToCareTests.ControllerTests
         [Fact]
         public void BedStatusTests()
         {
-            var result = occupancyController.BedStatus(1);
+            var result = occupancyController.BedStatus("b1");
             Assert.IsType<OkObjectResult>(result);
         }
 

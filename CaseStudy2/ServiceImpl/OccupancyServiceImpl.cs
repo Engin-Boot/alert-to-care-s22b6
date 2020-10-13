@@ -1,6 +1,7 @@
 ﻿using CaseStudy2.Service;
 using System.Data.SQLite;
 using CaseStudy2.Model;
+using System.Collections.Generic;
 
 namespace CaseStudy2.ServiceImpl
 {
@@ -8,21 +9,48 @@ namespace CaseStudy2.ServiceImpl
     {
         readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
-       
-        public bool CheckBedStatus(int id)
+
+        public List<PatientData> GetPatientsDetails()
         {
             using var con = new SQLiteConnection(cs);
             con.Open();
-            string stm = "select status from bed where id =" + id;
+            string stm = "SELECT * FROM patientsDetails";
+
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
-            string status = "";
+            List<PatientData> patient = new List<PatientData>();
+            while (rdr.Read())
+            {
+                PatientData patientData = new PatientData();
+                patientData.Id = rdr.GetInt32(0);
+                patientData.Name = rdr.GetString(1);
+                patientData.Address = rdr.GetString(2);
+                patientData.Email = rdr.GetString(3);
+                patientData.Bpm = rdr.GetDouble(4);
+                patientData.Spo2 = rdr.GetDouble(5);
+                patientData.RespRate = rdr.GetDouble(6);
+                patientData.IcuId = rdr.GetInt32(7);
+                patientData.BedId = rdr.GetString(8);
+                patient.Add(patientData);
+            }
+            return patient;
+        }
+
+
+        public bool CheckBedStatus(string id)
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select name from patientsDetails where bedId =" + id;
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            string status = null;
             if (rdr.Read())
             {
                 status = rdr.GetString(0);
             }
 
-            if (status == "Yes")
+            if (status!=null)
             {
                 return true;
             }

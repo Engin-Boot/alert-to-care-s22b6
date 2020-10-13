@@ -7,6 +7,6 @@ namespace CaseStudy2.Service
 {
     public interface IIcuConfigurationService
     {
-        public void AddNewIcu(Model.IcuSetUpData newState);
+        public bool AddNewIcu(Model.IcuSetUpData newState);
     }
 }

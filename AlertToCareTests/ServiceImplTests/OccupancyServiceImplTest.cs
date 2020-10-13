@@ -1,11 +1,7 @@
-﻿using CaseStudy2.Controllers;
-using CaseStudy2.Service;
+﻿using CaseStudy2.Service;
 using CaseStudy2.ServiceImpl;
 using CaseStudy2.Model;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertToCareTests.ServiceImplTests
@@ -34,7 +30,8 @@ namespace AlertToCareTests.ServiceImplTests
         [Fact]
         public void CheckBedStatusTest()
         {
-            var result = occupancyServiceImpl.CheckBedStatus(1);
+            string s = "bedId";
+            var result = occupancyServiceImpl.CheckBedStatus(s);
             Assert.IsType<bool>(result);
         }
         [Fact]

@@ -19,38 +19,17 @@ namespace CaseStudy2.Controllers
         {
             _icuConfigurationService = repo;
         }
-        // GET: api/<ConfigurationController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
-        // GET api/<ConfigurationController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
         [HttpPost]
         // POST api/<ConfigurationController>
         public String AddIcu([FromBody] Model.IcuSetUpData value)
         {
-            _icuConfigurationService.AddNewIcu(value);
-            return "New Icu Configuration Successfull";
+            var res= _icuConfigurationService.AddNewIcu(value);
+            return "New Icu Added :"+res.ToString();
         }
 
 
-        // PUT api/<ConfigurationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ConfigurationController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
