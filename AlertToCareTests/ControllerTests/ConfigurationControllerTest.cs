@@ -12,7 +12,7 @@ namespace AlertToCareTests.ControllerTests
 {
     public class ConfigurationControllerTest
     {
-        /* private readonly Mock<IIcuConfigurationService> _mockRepo;
+         private readonly Mock<IIcuConfigurationService> _mockRepo;
 
         private readonly ConfigurationController configurationController;
 
@@ -30,6 +30,6 @@ namespace AlertToCareTests.ControllerTests
             icudata.Layout = "CIRCLE";
             string result = configurationController.AddIcu(icudata);
             Assert.IsType<string>(result);
-        }*/
+        }
     }
 }
