@@ -47,8 +47,8 @@ namespace AlertToCareTests.ServiceImplTests
             patientData.Bpm = 100.0;
             patientData.IcuId = 10;
             patientData.BedId = "B1";
-            var result = occupancyServiceImpl.AddNewPatient(patientData);
-            Assert.True(result);
+            var result = occupancyServiceImpl.AddNewPatient(null);
+            Assert.False(result);
             Assert.IsType<bool>(result);
         }
     }
