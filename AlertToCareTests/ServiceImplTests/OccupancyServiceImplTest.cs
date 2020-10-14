@@ -8,15 +8,36 @@ namespace AlertToCareTests.ServiceImplTests
 {
     public class OccupancyServiceImplTest
     {
-        /*private Mock<IOccupancyService> _mockRepo;
+        private Mock<IOccupancyService> _mockRepo;
 
         private OccupancyServiceImpl occupancyServiceImpl=new OccupancyServiceImpl();
-        PatientData patientData = new PatientData();
+        
 
         public OccupancyServiceImplTest()
         {
             _mockRepo = new Mock<IOccupancyService>();
             // occupancyServiceImpl = new OccupancyServiceImpl(_mockRepo.Object);
+            
+        }
+        [Fact]
+        public void CheckBedStatusTest()
+        {
+            string s = "bedId";
+            var result = occupancyServiceImpl.CheckBedStatus(s);
+            Assert.True(result);
+            Assert.IsType<bool>(result);
+        }
+        [Fact]
+        public void DischargePatientTest()
+        {
+            var result = occupancyServiceImpl.DishchargePatient(1);
+            Assert.False(result);
+            Assert.IsType<bool>(result);
+        }
+        [Fact]
+        public void AddPatientTest()
+        {
+            PatientData patientData = new PatientData();
             patientData.Id = 1;
             patientData.Name = "Cr";
             patientData.Address = "UP";
@@ -26,26 +47,9 @@ namespace AlertToCareTests.ServiceImplTests
             patientData.Bpm = 100.0;
             patientData.IcuId = 10;
             patientData.BedId = "B1";
-        }
-       // [Fact]
-        public void CheckBedStatusTest()
-        {
-            string s = "bedId";
-            var result = occupancyServiceImpl.CheckBedStatus(s);
-            Assert.IsType<bool>(result);
-        }
-        [Fact]
-        public void DischargePatientTest()
-        {
-            var result = occupancyServiceImpl.DishchargePatient(1);
-            Assert.IsType<bool>(result);
-        }
-      /*  [Fact]
-        public void AddPatientTest()
-        {
-
             var result = occupancyServiceImpl.AddNewPatient(patientData);
+            Assert.True(result);
             Assert.IsType<bool>(result);
-        }*/
+        }
     }
 }
