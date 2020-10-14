@@ -11,14 +11,12 @@ namespace AlertToCareTests.ServiceImplTests
 {
    public class MonitorServiceImplTest
    {
-        private Mock<IMonitorService> _mockRepo;
-
-        private MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
+        readonly MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
 
 
         public MonitorServiceImplTest()
         {
-            _mockRepo = new Mock<IMonitorService>();
+            
         }
         [Fact]
         public void CheckBpmIsOkTest()
