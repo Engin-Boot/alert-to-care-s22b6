@@ -8,7 +8,7 @@ namespace CaseStudy2.ServiceImpl
     public class OccupancyServiceImpl:IOccupancyService
     {
         readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
-        MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
+        readonly MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
        // System.Data.SQLite.SQLiteConnection con;
         //System.Data.SQLite.SQLiteCommand cmd;
       /*  public OccupancyServiceImpl()

@@ -1,10 +1,6 @@
 ﻿using CaseStudy2.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Data.SQLite;
-using CaseStudy2.Model;
+
 
 namespace CaseStudy2.ServiceImpl
 {
