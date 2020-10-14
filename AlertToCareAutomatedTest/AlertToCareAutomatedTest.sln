@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertToCareAutomatedTest", "AlertToCareAutomatedTest\AlertToCareAutomatedTest.csproj", "{54E5AD67-6975-4817-81B6-CAF690A696CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54E5AD67-6975-4817-81B6-CAF690A696CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E5AD67-6975-4817-81B6-CAF690A696CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E5AD67-6975-4817-81B6-CAF690A696CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E5AD67-6975-4817-81B6-CAF690A696CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0E65517-1CB6-44DC-920B-EB10E3957199}
+	EndGlobalSection
+EndGlobal

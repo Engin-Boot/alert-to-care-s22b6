@@ -13,7 +13,7 @@ namespace AlertToCareAutomatedTest
             RestClient restClient = new RestClient("http://localhost:62527/api/");
 
             //Creating request to get data from server
-            RestRequest restRequest = new RestRequest("Occupancy/1", Method.GET);
+            RestRequest restRequest = new RestRequest("Occupancy/bedStatus/1", Method.GET);
             //  restRequest.AddUrlSegment("{id}", 1);
 
             // Executing request to server and checking server response to the it

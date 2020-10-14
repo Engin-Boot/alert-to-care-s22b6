@@ -42,6 +42,9 @@
     <Reference Include="BoDi, Version=1.4.1.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.4.1\lib\net45\BoDi.dll</HintPath>
     </Reference>
+    <Reference Include="CaseStudy2">
+      <HintPath>..\..\CaseStudy2\bin\Debug\netcoreapp3.1\CaseStudy2.dll</HintPath>
+    </Reference>
     <Reference Include="Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c, processorArchitecture=MSIL">
       <HintPath>..\packages\Cucumber.Messages.6.0.1\lib\net45\Cucumber.Messages.dll</HintPath>
     </Reference>
@@ -120,6 +123,8 @@
     <Compile Include="MonitorControllerBpm.cs" />
     <Compile Include="MonitorControllerRespRate.cs" />
     <Compile Include="MonitorControllerSpo2.cs" />
+    <Compile Include="OccupancyControllerAddPatients.cs" />
+    <Compile Include="OccupancyControllerAllPatientDetails.cs" />
     <Compile Include="OccupancyControllerBedStatus.cs" />
     <Compile Include="OccupancyControllerDischargePatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
