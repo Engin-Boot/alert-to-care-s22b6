@@ -32,14 +32,15 @@ namespace AlertToCareTests.ControllerTests
                Assert.NotNull(res);
                Assert.IsType<string>(res);
            }
-         /*  [Fact]
+           [Fact]
            public void BedStatusTests()
            {
-               var result = occupancyController.BedStatus("b1");
-               Assert.IsType<OkObjectResult>(result);
+                var result = occupancyController.BedStatus("b1");
+                Assert.NotNull(result);
+                Assert.IsType<OkObjectResult>(result);
            }
 
-        [Fact]
+        /*[Fact]
         public void DischargePatientsTests()
         {
             var result = occupancyController.Dishcharge(1);
