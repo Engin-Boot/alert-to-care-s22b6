@@ -26,7 +26,7 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.BpmIsOk(100.0, 70.0, 150.0);
             Assert.IsType<bool>(result);
         }
-        [Fact]
+        /*[Fact]
         public void CheckSpo2IsOkTest()
         {
             var result = monitorServiceImpl.Spo2IsOk(95.0, 90.0);
@@ -50,7 +50,7 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.VitalsAreOk(100.0, 95.0, 50.0);
             Assert.IsType<bool>(result);
         }
-       /* [Fact]
+        [Fact]
         public void CheckMonitorBpmTest()
         {
             var result = monitorServiceImpl.Monitorbpm(1);
@@ -68,6 +68,6 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.MonitorRespRate(1);
             Assert.IsType<bool>(result);
         }*/
-        
+
     }
 }
