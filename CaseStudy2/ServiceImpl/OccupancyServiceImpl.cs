@@ -9,16 +9,17 @@ namespace CaseStudy2.ServiceImpl
     {
         readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         MonitorServiceImpl _monitorServiceImpl = new MonitorServiceImpl();
-        System.Data.SQLite.SQLiteConnection con;
-        System.Data.SQLite.SQLiteCommand cmd;
-        public OccupancyServiceImpl()
+       // System.Data.SQLite.SQLiteConnection con;
+        //System.Data.SQLite.SQLiteCommand cmd;
+      /*  public OccupancyServiceImpl()
         {
             using var con = new SQLiteConnection(cs);
             con.Open();
-        }
+        }*/
         public List<PatientData> GetPatientsDetails()
         {
-            
+            using var con = new SQLiteConnection(cs);
+            con.Open();
             string stm = "SELECT * FROM patientsDetails";
 
             using var cmd = new SQLiteCommand(stm, con);
@@ -44,7 +45,8 @@ namespace CaseStudy2.ServiceImpl
 
         public bool CheckBedStatus(string id)
         {
-            
+            using var con = new SQLiteConnection(cs);
+            con.Open();
             string stm = "select name from patientsDetails where bedId =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -65,7 +67,8 @@ namespace CaseStudy2.ServiceImpl
         {
             if (newState != null)
             {
-                
+                using var con = new SQLiteConnection(cs);
+                con.Open();
                 using var cmd = new SQLiteCommand(con);
                 cmd.CommandText = "INSERT INTO patientsDetails(name, address,email, bpm,spo2,respRate,icuId,bedId) VALUES('" + newState.Name + "','" + newState.Address + "','" + newState.Email + "'," + newState.Bpm + "," + newState.Spo2 + "," + newState.RespRate + "," + newState.IcuId + ",'" + newState.BedId + "')";
                 cmd.ExecuteNonQuery();
@@ -75,8 +78,8 @@ namespace CaseStudy2.ServiceImpl
         }
         public bool DishchargePatient(int id)
         {
-            
-            
+            using var con = new SQLiteConnection(cs);
+            con.Open();
             string stm = "select bpm,spo2,respRate from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
