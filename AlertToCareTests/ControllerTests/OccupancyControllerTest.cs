@@ -40,11 +40,12 @@ namespace AlertToCareTests.ControllerTests
                 Assert.IsType<OkObjectResult>(result);
            }
 
-        /*[Fact]
+        [Fact]
         public void DischargePatientsTests()
         {
             var result = occupancyController.Dishcharge(1);
+            Assert.NotNull(result);
             Assert.IsType<OkObjectResult>(result);
-        }*/
+        }
     }
 }
