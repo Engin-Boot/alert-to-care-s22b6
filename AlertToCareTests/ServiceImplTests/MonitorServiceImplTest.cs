@@ -11,7 +11,7 @@ namespace AlertToCareTests.ServiceImplTests
 {
    public class MonitorServiceImplTest
    {
-        /*private Mock<IMonitorService> _mockRepo;
+        private Mock<IMonitorService> _mockRepo;
 
         private MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
 
@@ -50,7 +50,7 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.VitalsAreOk(100.0, 95.0, 50.0);
             Assert.IsType<bool>(result);
         }
-        [Fact]
+       /* [Fact]
         public void CheckMonitorBpmTest()
         {
             var result = monitorServiceImpl.Monitorbpm(1);
@@ -67,7 +67,7 @@ namespace AlertToCareTests.ServiceImplTests
         {
             var result = monitorServiceImpl.MonitorRespRate(1);
             Assert.IsType<bool>(result);
-        }
-        */
+        }*/
+        
     }
 }
