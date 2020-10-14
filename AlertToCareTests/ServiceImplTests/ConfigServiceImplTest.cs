@@ -9,21 +9,24 @@ namespace AlertToCareTests.ServiceImplTests
 {
     public class ConfigServiceImplTest
     {
-        /* IcuSetUpData _icuSetUpData = new IcuSetUpData();
+         
         ConfigurationImpl configurationImpl = new ConfigurationImpl();
         public ConfigServiceImplTest()
         {
-            _icuSetUpData.IcuId = 1;
-            _icuSetUpData.BedsCount = 20;
-            _icuSetUpData.Layout = "Cr";
+            
         }
 
        [Fact]
         public void AddIcuTest()
         {
+            IcuSetUpData _icuSetUpData = new IcuSetUpData();
+            _icuSetUpData.IcuId = 1;
+            _icuSetUpData.BedsCount = 20;
+            _icuSetUpData.Layout = "Cr";
 
-            var result = configurationImpl.AddNewIcu(_icuSetUpData);
+            var result = configurationImpl.AddNewIcu(null);
+            Assert.False(result);
             Assert.IsType<bool>(result);
-        }*/
+        }
     }
 }
