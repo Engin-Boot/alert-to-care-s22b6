@@ -41,7 +41,31 @@ namespace CaseStudy2.ServiceImpl
             }
             return patient;
         }
+        public List<PatientData> GetPatientDetails(int id)
+        {
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "SELECT * FROM patientsDetails where id="+id;
 
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            List<PatientData> patient = new List<PatientData>();
+            while (rdr.Read())
+            {
+                PatientData patientData = new PatientData();
+                patientData.Id = rdr.GetInt32(0);
+                patientData.Name = rdr.GetString(1);
+                patientData.Address = rdr.GetString(2);
+                patientData.Email = rdr.GetString(3);
+                patientData.Bpm = rdr.GetDouble(4);
+                patientData.Spo2 = rdr.GetDouble(5);
+                patientData.RespRate = rdr.GetDouble(6);
+                patientData.IcuId = rdr.GetInt32(7);
+                patientData.BedId = rdr.GetString(8);
+                patient.Add(patientData);
+            }
+            return patient;
+        }
 
         public bool CheckBedStatus(string id)
         {

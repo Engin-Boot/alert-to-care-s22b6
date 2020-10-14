@@ -92,6 +92,22 @@ namespace CaseStudy2.Controllers
 
         }
 
+        [HttpGet("{id}")]
+        public List<PatientData> GetPatientDetails(int id)
+        {
+            try
+            {
+                var res = _occupancyService.GetPatientDetails(id);
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        }
+
         [HttpGet("bedStatus/{id}")]
         public Object BedStatus( string id)
         {

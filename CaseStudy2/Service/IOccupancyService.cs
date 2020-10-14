@@ -12,5 +12,7 @@ namespace CaseStudy2.Service
         public bool DishchargePatient(int id);
 
         public List<PatientData> GetPatientsDetails();
+
+        public List<PatientData> GetPatientDetails(int id);
     }
 }
