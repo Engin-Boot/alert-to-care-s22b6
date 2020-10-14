@@ -13,7 +13,7 @@ namespace AlertToCareTests.ServiceImplTests
    {
         readonly MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
 
-        /*
+        
         public MonitorServiceImplTest()
         {
             
@@ -48,7 +48,7 @@ namespace AlertToCareTests.ServiceImplTests
             var result = monitorServiceImpl.VitalsAreOk(100.0, 95.0, 50.0);
             Assert.IsType<bool>(result);
         }
-        [Fact]
+        /*[Fact]
         public void CheckMonitorBpmTest()
         {
             var result = monitorServiceImpl.Monitorbpm(1);
@@ -59,13 +59,13 @@ namespace AlertToCareTests.ServiceImplTests
         {
             var result = monitorServiceImpl.Monitorspo2s(1);
             Assert.IsType<bool>(result);
-        }*/
+        }
         [Fact]
         public void CheckMonitorRespRateTest()
         {
             var result = monitorServiceImpl.MonitorRespRate(1);
             Assert.IsType<bool>(result);
-        }
+        }*/
 
     }
 }

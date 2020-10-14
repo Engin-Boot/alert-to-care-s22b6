@@ -15,26 +15,26 @@ namespace CaseStudy2.ServiceImpl
             using var con = new SQLiteConnection(cs);
             con.Open();
         }*/
-        private bool BpmIsOk(Double bpm, Double minBpm, Double maxBpm)
+        public bool BpmIsOk(Double bpm, Double minBpm, Double maxBpm)
         {
             if (bpm < minBpm || bpm > maxBpm)
                 return false;
             return true;
         }
 
-       private bool Spo2IsOk(Double spo2, Double minSpo2)
+       public bool Spo2IsOk(Double spo2, Double minSpo2)
        {
             if (spo2 < minSpo2)
                 return false;
             return true;
        }
-         private bool RespRateIsOk(Double respRate, Double minRespRate, Double maxRespRate)
+         public bool RespRateIsOk(Double respRate, Double minRespRate, Double maxRespRate)
          {
             if (respRate < minRespRate || respRate > maxRespRate)
                 return false;
             return true;
          }
-         private bool BpmAndSpo2AreOk(Double bpm, Double spo2)
+         public bool BpmAndSpo2AreOk(Double bpm, Double spo2)
          {
             if (BpmIsOk(bpm, 70, 150) && Spo2IsOk(spo2, 90))
                 return true;
