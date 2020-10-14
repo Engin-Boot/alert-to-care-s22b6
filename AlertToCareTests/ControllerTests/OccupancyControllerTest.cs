@@ -9,7 +9,7 @@ namespace AlertToCareTests.ControllerTests
 {
     public class OccupancyControllerTest
     {
-        /* private Mock<IOccupancyService> _mockRepo;
+         private Mock<IOccupancyService> _mockRepo;
 
         private OccupancyController occupancyController;
 
@@ -18,7 +18,7 @@ namespace AlertToCareTests.ControllerTests
             _mockRepo = new Mock<IOccupancyService>();
             occupancyController = new OccupancyController(_mockRepo.Object);
         }
-        // [Fact]
+          [ Fact]
           public void AddPatientsTests()
            {
                PatientData patientData = new PatientData();
@@ -29,9 +29,10 @@ namespace AlertToCareTests.ControllerTests
                patientData.Address = "";
                patientData.Email = "csv@hmail.com";
                String res = occupancyController.AddPatient(patientData);
+               Assert.NotNull(res);
                Assert.IsType<string>(res);
            }
-           [Fact]
+         /*  [Fact]
            public void BedStatusTests()
            {
                var result = occupancyController.BedStatus("b1");
