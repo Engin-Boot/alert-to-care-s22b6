@@ -18,13 +18,16 @@ namespace AlertCareTest.ServiceImplTests
                 BedsCount = 20,
                 Layout = "Cr"
             };
+            var result = configurationImpl.AddNewIcu(_icuSetUpData);
+            Assert.True(result);
+            Assert.IsType<bool>(result);
 
-            var result = configurationImpl.AddNewIcu(null);
+            result = configurationImpl.AddNewIcu(null);
             Assert.False(result);
             Assert.IsType<bool>(result);
         }
 
-       /* [Fact]
+        [Fact]
         public void UpdateIcuTest()
         {
             IcuSetUpData _icuSetUpData = new IcuSetUpData
@@ -32,9 +35,12 @@ namespace AlertCareTest.ServiceImplTests
                 BedsCount = 20               
             };
 
-            var result = configurationImpl.UpdateIcu(1,null);
+            var result = configurationImpl.UpdateIcu(1, _icuSetUpData);
+            Assert.True(result);
+            Assert.IsType<bool>(result);
+            result = configurationImpl.UpdateIcu(1, null);
             Assert.False(result);
             Assert.IsType<bool>(result);
-        }*/
+        }
     }
 }

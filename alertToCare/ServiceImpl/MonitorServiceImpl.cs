@@ -9,6 +9,7 @@ namespace alertToCare.ServiceImpl
     {
         readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
         System.Data.SQLite.SQLiteConnection con;
+        System.Data.SQLite.SQLiteCommand cmd;
         // System.Data.SQLite.SQLiteCommand cmd;
 
         /*   public MonitorServiceImpl()
@@ -50,10 +51,10 @@ namespace alertToCare.ServiceImpl
 
         public bool MonitorRespRate(int id)
         {
-            con = new SQLiteConnection(cs);
-            con.Open();
+           
+            SqlSetUp();
             string stm = "select respRate from patientsDetails where id =" + id;
-            using var cmd = new SQLiteCommand(stm, con);
+            cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
             bool status = false;
             if (rdr.Read())
@@ -73,8 +74,7 @@ namespace alertToCare.ServiceImpl
 
         public bool Monitorspo2(int id)
         {
-            con = new SQLiteConnection(cs);
-            con.Open();
+            SqlSetUp();
             string stm = "select spo2 from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -95,8 +95,8 @@ namespace alertToCare.ServiceImpl
         }
         public bool Monitorbpm(int id)
         {
-            con = new SQLiteConnection(cs);
-            con.Open();
+            
+            SqlSetUp();
             string stm = "select bpm from patientsDetails where id =" + id;
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -114,6 +114,11 @@ namespace alertToCare.ServiceImpl
                 }
             }
             return status;
+        }
+        public void SqlSetUp()
+        {
+            con = new SQLiteConnection(cs);
+            con.Open();
         }
     }
 }
