@@ -55,7 +55,7 @@ namespace AlertCareTest.ServiceImplTests
             Assert.IsType<bool>(result);
         }
 
-        [Fact]
+        /*[Fact]
         public void UpdatePatientInfoTest()
         {
             PatientData patientData = new PatientData
@@ -69,7 +69,7 @@ namespace AlertCareTest.ServiceImplTests
             Assert.IsType<bool>(result);
         }
 
-     /*   [Fact]
+        [Fact]
         public void GetPatientsDetailsTest()
         {
             var result = occupancyServiceImpl.GetPatientsDetails();
