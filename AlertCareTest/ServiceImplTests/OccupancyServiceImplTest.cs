@@ -2,6 +2,7 @@
 using alertToCare.Service;
 using alertToCare.ServiceImpl;
 using Moq;
+using System.Collections.Generic;
 using Xunit;
 
 namespace AlertCareTest.ServiceImplTests
@@ -37,19 +38,51 @@ namespace AlertCareTest.ServiceImplTests
         [Fact]
         public void AddPatientTest()
         {
-            PatientData patientData = new PatientData();
-            patientData.Id = 1;
-            patientData.Name = "Cr";
-            patientData.Address = "UP";
-            patientData.Email = "Cr@gmail.com";
-            patientData.RespRate = 90.0;
-            patientData.Spo2 = 80.0;
-            patientData.Bpm = 100.0;
-            patientData.IcuId = 10;
-            patientData.BedId = "B1";
+            PatientData patientData = new PatientData
+            {
+                Id = 1,
+                Name = "Cr",
+                Address = "UP",
+                Email = "Cr@gmail.com",
+                RespRate = 90.0,
+                Spo2 = 80.0,
+                Bpm = 100.0,
+                IcuId = 10,
+                BedId = "B1"
+            };
             var result = occupancyServiceImpl.AddNewPatient(null);
             Assert.False(result);
             Assert.IsType<bool>(result);
         }
+
+        [Fact]
+        public void UpdatePatientInfoTest()
+        {
+            PatientData patientData = new PatientData
+            {                 
+                RespRate = 90.0,
+                Spo2 = 80.0,
+                Bpm = 100.0                
+            };
+            var result = occupancyServiceImpl.UpdatePatientInfo(1,null);
+            Assert.False(result);
+            Assert.IsType<bool>(result);
+        }
+
+     /*   [Fact]
+        public void GetPatientsDetailsTest()
+        {
+            var result = occupancyServiceImpl.GetPatientsDetails();
+            
+            Assert.IsType<List<PatientData>>(result);
+        }
+
+        [Fact]
+        public void GetPatientDetailsTest()
+        {
+            var result = occupancyServiceImpl.GetPatientDetails(1);
+
+            Assert.IsType<List<PatientData>>(result);
+        }*/
     }
 }

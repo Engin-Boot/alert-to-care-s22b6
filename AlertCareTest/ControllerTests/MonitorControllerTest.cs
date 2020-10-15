@@ -1,11 +1,12 @@
 ﻿using alertToCare.Controllers;
 using alertToCare.Service;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-   abstract public class MonitorControllerTest
+    public class MonitorControllerTest
     {
         private readonly Mock<IMonitorService> _mockRepo;
 
@@ -21,7 +22,7 @@ namespace AlertCareTest.ControllerTests
         {
             var result = _monitorController.MonitorRespRates(1);
             Assert.NotNull(result);
-            Assert.IsType<string>(result);
+            Assert.IsType<OkObjectResult>(result);
         }
         [Fact]
         public void Monitorspo2Test()

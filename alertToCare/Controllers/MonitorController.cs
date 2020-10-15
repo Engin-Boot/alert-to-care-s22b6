@@ -18,13 +18,15 @@ namespace alertToCare.Controllers
         }
 
         [HttpGet("resperatoryRate/{id}")]
-        public string MonitorRespRates(int id)
+        public IActionResult MonitorRespRates(int id)
         {
+            string result;
             if (_monitorService.MonitorRespRate(id) == false)
             {
-                return "Resperatory rate is not ok for the patient id : " + id;
+                _ = "Resperatory rate is not ok for the patient id : " + id;
             }
-            return "Resperatory rate is good for the patient id : " + id;
+            result= "Resperatory rate is good for the patient id : " + id;
+            return Ok(result);
         }
 
         [HttpGet("spo2/{id}")]

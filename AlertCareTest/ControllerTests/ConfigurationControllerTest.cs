@@ -6,7 +6,7 @@ using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-    abstract public class ConfigurationControllerTest
+     public class ConfigurationControllerTest
     {
         private readonly Mock<IIcuConfigurationService> _mockRepo;
 
@@ -20,11 +20,23 @@ namespace AlertCareTest.ControllerTests
         [Fact]
         public void AddIcuTest()
         {
-            IcuSetUpData icudata = new IcuSetUpData();
-            icudata.IcuId = 2;
-            icudata.BedsCount = 3;
-            icudata.Layout = "CIRCLE";
+            IcuSetUpData icudata = new IcuSetUpData
+            {
+                IcuId = 2,
+                BedsCount = 3,
+                Layout = "CIRCLE"
+            };
             string result = _configurationController.AddIcu(icudata);
+            Assert.IsType<string>(result);
+        }
+        [Fact]
+        public void UpdateIcuDataTest()
+        {
+            IcuSetUpData icudata = new IcuSetUpData
+            {                
+                BedsCount = 3                
+            };
+            string result = _configurationController.UpdateIcuData(2,icudata);
             Assert.IsType<string>(result);
         }
     }

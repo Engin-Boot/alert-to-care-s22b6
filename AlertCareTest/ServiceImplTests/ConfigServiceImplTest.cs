@@ -4,23 +4,35 @@ using Xunit;
 
 namespace AlertCareTest.ServiceImplTests
 {
-   abstract public class ConfigServiceImplTest
+    public class ConfigServiceImplTest
     {
         readonly ConfigurationImpl configurationImpl = new ConfigurationImpl();
-        public ConfigServiceImplTest()
-        {
-
-        }
+        
 
         [Fact]
         public void AddIcuTest()
         {
-            IcuSetUpData _icuSetUpData = new IcuSetUpData();
-            _icuSetUpData.IcuId = 1;
-            _icuSetUpData.BedsCount = 20;
-            _icuSetUpData.Layout = "Cr";
+            IcuSetUpData _icuSetUpData = new IcuSetUpData
+            {
+                IcuId = 1,
+                BedsCount = 20,
+                Layout = "Cr"
+            };
 
             var result = configurationImpl.AddNewIcu(null);
+            Assert.False(result);
+            Assert.IsType<bool>(result);
+        }
+
+        [Fact]
+        public void UpdateIcuTest()
+        {
+            IcuSetUpData _icuSetUpData = new IcuSetUpData
+            {
+                BedsCount = 20               
+            };
+
+            var result = configurationImpl.UpdateIcu(1,null);
             Assert.False(result);
             Assert.IsType<bool>(result);
         }

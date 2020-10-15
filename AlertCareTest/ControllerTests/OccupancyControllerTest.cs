@@ -8,7 +8,7 @@ using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-   abstract public class OccupancyControllerTest
+    public class OccupancyControllerTest
     {
         private readonly Mock<IOccupancyService> _mockRepo;
 
@@ -22,16 +22,19 @@ namespace AlertCareTest.ControllerTests
         [Fact]
         public void AddPatientsTests()
         {
-            PatientData patientData = new PatientData();
-            patientData.Name = "CSv";
-            patientData.RespRate = 21.0;
-            patientData.Bpm = 90.0;
-            patientData.Spo2 = 45.0;
-            patientData.Address = "";
-            patientData.Email = "csv@hmail.com";
+            PatientData patientData = new PatientData
+            {
+                Name = "CSv",
+                RespRate = 21.0,
+                Bpm = 90.0,
+                Spo2 = 45.0,
+                Address = "",
+                Email = "csv@hmail.com"
+            };
             String res = _occupancyController.AddPatient(patientData);
             Assert.NotNull(res);
             Assert.IsType<string>(res);
+
         }
         [Fact]
         public void BedStatusTests()
@@ -47,6 +50,33 @@ namespace AlertCareTest.ControllerTests
             var result = _occupancyController.Dishcharge(1);
             Assert.NotNull(result);
             Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void GetPatientsDetailsTest()
+        {
+            var result = _occupancyController.GetPatientsDetails();
+            Assert.Null(result);           
+        }
+
+        [Fact]
+        public void GetPatientDetailsTest()
+        {
+            var result = _occupancyController.GetPatientDetails(1);
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void UpdatePatientDetailsTest()
+        {
+            PatientData patientData = new PatientData
+            {               
+                RespRate = 21.0,
+                Bpm = 90.0,
+                Spo2 = 45.0                
+            };
+            string result = _occupancyController.UpdatePatientDetails(2, patientData);
+            Assert.IsType<string>(result);
         }
     }
 }

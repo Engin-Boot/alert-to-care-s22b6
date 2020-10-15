@@ -28,16 +28,18 @@ namespace alertToCare.ServiceImpl
             List<PatientData> patient = new List<PatientData>();
             while (rdr.Read())
             {
-                PatientData patientData = new PatientData();
-                patientData.Id = rdr.GetInt32(0);
-                patientData.Name = rdr.GetString(1);
-                patientData.Address = rdr.GetString(2);
-                patientData.Email = rdr.GetString(3);
-                patientData.Bpm = rdr.GetDouble(4);
-                patientData.Spo2 = rdr.GetDouble(5);
-                patientData.RespRate = rdr.GetDouble(6);
-                patientData.IcuId = rdr.GetInt32(7);
-                patientData.BedId = rdr.GetString(8);
+                PatientData patientData = new PatientData
+                {
+                    Id = rdr.GetInt32(0),
+                    Name = rdr.GetString(1),
+                    Address = rdr.GetString(2),
+                    Email = rdr.GetString(3),
+                    Bpm = rdr.GetDouble(4),
+                    Spo2 = rdr.GetDouble(5),
+                    RespRate = rdr.GetDouble(6),
+                    IcuId = rdr.GetInt32(7),
+                    BedId = rdr.GetString(8)
+                };
                 patient.Add(patientData);
             }
             return patient;
@@ -53,16 +55,18 @@ namespace alertToCare.ServiceImpl
             List<PatientData> patient = new List<PatientData>();
             while (rdr.Read())
             {
-                PatientData patientData = new PatientData();
-                patientData.Id = rdr.GetInt32(0);
-                patientData.Name = rdr.GetString(1);
-                patientData.Address = rdr.GetString(2);
-                patientData.Email = rdr.GetString(3);
-                patientData.Bpm = rdr.GetDouble(4);
-                patientData.Spo2 = rdr.GetDouble(5);
-                patientData.RespRate = rdr.GetDouble(6);
-                patientData.IcuId = rdr.GetInt32(7);
-                patientData.BedId = rdr.GetString(8);
+                PatientData patientData = new PatientData
+                {
+                    Id = rdr.GetInt32(0),
+                    Name = rdr.GetString(1),
+                    Address = rdr.GetString(2),
+                    Email = rdr.GetString(3),
+                    Bpm = rdr.GetDouble(4),
+                    Spo2 = rdr.GetDouble(5),
+                    RespRate = rdr.GetDouble(6),
+                    IcuId = rdr.GetInt32(7),
+                    BedId = rdr.GetString(8)
+                };
                 patient.Add(patientData);
             }
             return patient;
