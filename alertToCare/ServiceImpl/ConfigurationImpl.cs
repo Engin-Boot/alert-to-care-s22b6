@@ -26,5 +26,18 @@ namespace alertToCare.ServiceImpl
             }
             return false;
         }
+        public bool UpdateIcu(int id, Model.IcuSetUpData state)
+        {
+            if (state != null)
+            {
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                string stm = $"UPDATE Icu SET NumberOfBeds = {state.BedsCount} WHERE IcuIdNumber = {id}";
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+                return true;
+            }
+            return false;
+        }
     }
 }

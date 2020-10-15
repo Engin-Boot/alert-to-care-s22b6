@@ -103,6 +103,19 @@ namespace alertToCare.ServiceImpl
             }
             return false;
         }
+        public bool UpdatePatientInfo(int id, PatientData state)
+        {
+            if (state != null)
+            {
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                string stm = $"UPDATE patientsDetails SET bpm = {state.Bpm},spo2 = {state.Spo2},respRate = {state.RespRate} WHERE id = {id}";
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+                return true;
+            }
+            return false;
+        }
         public bool DishchargePatient(int id)
         {
             using var con = new SQLiteConnection(cs);

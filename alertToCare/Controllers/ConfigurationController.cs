@@ -27,5 +27,11 @@ namespace alertToCare.Controllers
             var res = _icuConfigurationService.AddNewIcu(value);
             return "New Icu Added :" + res.ToString();
         }
+        [HttpPut("{id}")]
+        public string UpdateIcuData(int id, [FromBody] Model.IcuSetUpData value)
+        {
+            var res = _icuConfigurationService.UpdateIcu(id, value);
+            return "Icu Data Updated successfully :" + res.ToString();
+        }
     }
 }

@@ -148,5 +148,11 @@ namespace alertToCare.Controllers
             return "Patient Added:" + res.ToString();
         }
 
+        [HttpPut("{id}")]
+        public string UpdatePatientDetails(int id, [FromBody] Model.PatientData value)
+        {
+            var res = _occupancyService.UpdatePatientInfo(id, value);
+            return "patient details update successfully :" + res.ToString();
+        }
     }
 }
