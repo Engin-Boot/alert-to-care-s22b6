@@ -4,22 +4,20 @@ using alertToCare.Service;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-    public class OccupancyControllerTest
+   abstract public class OccupancyControllerTest
     {
-        private Mock<IOccupancyService> _mockRepo;
+        private readonly Mock<IOccupancyService> _mockRepo;
 
-        private OccupancyController occupancyController;
+        private readonly OccupancyController _occupancyController;
 
         public OccupancyControllerTest()
         {
             _mockRepo = new Mock<IOccupancyService>();
-            occupancyController = new OccupancyController(_mockRepo.Object);
+            _occupancyController = new OccupancyController(_mockRepo.Object);
         }
         [Fact]
         public void AddPatientsTests()
@@ -31,14 +29,14 @@ namespace AlertCareTest.ControllerTests
             patientData.Spo2 = 45.0;
             patientData.Address = "";
             patientData.Email = "csv@hmail.com";
-            String res = occupancyController.AddPatient(patientData);
+            String res = _occupancyController.AddPatient(patientData);
             Assert.NotNull(res);
             Assert.IsType<string>(res);
         }
         [Fact]
         public void BedStatusTests()
         {
-            var result = occupancyController.BedStatus("b1");
+            var result = _occupancyController.BedStatus("b1");
             Assert.NotNull(result);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -46,7 +44,7 @@ namespace AlertCareTest.ControllerTests
         [Fact]
         public void DischargePatientsTests()
         {
-            var result = occupancyController.Dishcharge(1);
+            var result = _occupancyController.Dishcharge(1);
             Assert.NotNull(result);
             Assert.IsType<OkObjectResult>(result);
         }

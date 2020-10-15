@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using alertToCare.Service;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,17 +10,17 @@ namespace alertToCare.Controllers
     [ApiController]
     public class MonitorController : ControllerBase
     {
-        readonly Service.IMonitorService monitorService;
+        readonly Service.IMonitorService _monitorService;
 
         public MonitorController(Service.IMonitorService repo)
         {
-            monitorService = repo;
+            _monitorService = repo;
         }
 
         [HttpGet("resperatoryRate/{id}")]
         public string MonitorRespRates(int id)
         {
-            if (monitorService.MonitorRespRate(id) == false)
+            if (_monitorService.MonitorRespRate(id) == false)
             {
                 return "Resperatory rate is not ok for the patient id : " + id;
             }
@@ -31,9 +28,9 @@ namespace alertToCare.Controllers
         }
 
         [HttpGet("spo2/{id}")]
-        public string Monitorspo2s(int id)
+        public string Monitorspo2(int id)
         {
-            if (monitorService.Monitorspo2s(id) == false)
+            if (_monitorService.Monitorspo2(id) == false)
             {
                 return "Spo2  is not ok for the patient id : " + id;
             }
@@ -43,7 +40,7 @@ namespace alertToCare.Controllers
         [HttpGet("bpm/{id}")]
         public string Monitorbpms(int id)
         {
-            if (monitorService.Monitorbpm(id) == false)
+            if (_monitorService.Monitorbpm(id) == false)
             {
                 return "BPM  is not ok for the patient id : " + id;
             }

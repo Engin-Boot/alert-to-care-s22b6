@@ -6,7 +6,7 @@ namespace AlertCareTest
 {
     public class IcuDataTests
     {
-        IcuSetUpData _icuSetUpData = new IcuSetUpData();
+        readonly IcuSetUpData _icuSetUpData = new IcuSetUpData();
         public IcuDataTests()
         {
             _icuSetUpData.IcuId = 1;

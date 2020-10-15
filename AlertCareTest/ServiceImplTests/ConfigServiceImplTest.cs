@@ -1,16 +1,12 @@
 ﻿using alertToCare.Model;
 using alertToCare.ServiceImpl;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ServiceImplTests
 {
-    public class ConfigServiceImplTest
+   abstract public class ConfigServiceImplTest
     {
-
-        ConfigurationImpl configurationImpl = new ConfigurationImpl();
+        readonly ConfigurationImpl configurationImpl = new ConfigurationImpl();
         public ConfigServiceImplTest()
         {
 

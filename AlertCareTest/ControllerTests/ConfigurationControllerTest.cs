@@ -2,23 +2,20 @@
 using alertToCare.Model;
 using alertToCare.Service;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-    public class ConfigurationControllerTest
+    abstract public class ConfigurationControllerTest
     {
         private readonly Mock<IIcuConfigurationService> _mockRepo;
 
-        private readonly ConfigurationController configurationController;
+        private readonly ConfigurationController _configurationController;
 
         public ConfigurationControllerTest()
         {
             _mockRepo = new Mock<IIcuConfigurationService>();
-            configurationController = new ConfigurationController(_mockRepo.Object);
+            _configurationController = new ConfigurationController(_mockRepo.Object);
         }
         [Fact]
         public void AddIcuTest()
@@ -27,7 +24,7 @@ namespace AlertCareTest.ControllerTests
             icudata.IcuId = 2;
             icudata.BedsCount = 3;
             icudata.Layout = "CIRCLE";
-            string result = configurationController.AddIcu(icudata);
+            string result = _configurationController.AddIcu(icudata);
             Assert.IsType<string>(result);
         }
     }

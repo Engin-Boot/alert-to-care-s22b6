@@ -1,9 +1,7 @@
 ﻿using alertToCare.Service;
 using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace alertToCare.ServiceImpl
 {
@@ -73,7 +71,7 @@ namespace alertToCare.ServiceImpl
             return status;
         }
 
-        public bool Monitorspo2s(int id)
+        public bool Monitorspo2(int id)
         {
             con = new SQLiteConnection(cs);
             con.Open();

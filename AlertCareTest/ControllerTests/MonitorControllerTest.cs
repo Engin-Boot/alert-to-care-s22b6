@@ -1,42 +1,39 @@
 ﻿using alertToCare.Controllers;
 using alertToCare.Service;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ControllerTests
 {
-    public class MonitorControllerTest
+   abstract public class MonitorControllerTest
     {
-        private Mock<IMonitorService> _mockRepo;
+        private readonly Mock<IMonitorService> _mockRepo;
 
-        private MonitorController monitorController;
+        private readonly MonitorController _monitorController;
         public MonitorControllerTest()
         {
             _mockRepo = new Mock<IMonitorService>();
-            monitorController = new MonitorController(_mockRepo.Object);
+            _monitorController = new MonitorController(_mockRepo.Object);
         }
 
         [Fact]
         public void MonitorRespRatesTest()
         {
-            var result = monitorController.MonitorRespRates(1);
+            var result = _monitorController.MonitorRespRates(1);
             Assert.NotNull(result);
             Assert.IsType<string>(result);
         }
         [Fact]
-        public void Monitorspo2sTest()
+        public void Monitorspo2Test()
         {
-            var result = monitorController.Monitorspo2s(1);
+            var result = _monitorController.Monitorspo2(1);
             Assert.NotNull(result);
             Assert.IsType<string>(result);
         }
         [Fact]
         public void MonitorbpmsTest()
         {
-            var result = monitorController.Monitorbpms(1);
+            var result = _monitorController.Monitorbpms(1);
             Assert.NotNull(result);
             Assert.IsType<string>(result);
         }

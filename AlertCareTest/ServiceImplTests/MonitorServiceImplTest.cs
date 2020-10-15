@@ -1,12 +1,9 @@
 ﻿using alertToCare.ServiceImpl;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ServiceImplTests
 {
-    public class MonitorServiceImplTest
+   abstract public class MonitorServiceImplTest
     {
         readonly MonitorServiceImpl monitorServiceImpl = new MonitorServiceImpl();
 

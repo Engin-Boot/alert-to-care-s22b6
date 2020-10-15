@@ -8,7 +8,7 @@ namespace AlertCareTest
 {
     public class PatientDataTests
     {
-        PatientData patientData = new PatientData();
+        readonly PatientData patientData = new PatientData();
         public PatientDataTests()
         {
             patientData.Id = 1;

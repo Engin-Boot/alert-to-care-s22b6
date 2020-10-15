@@ -2,18 +2,15 @@
 using alertToCare.Service;
 using alertToCare.ServiceImpl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace AlertCareTest.ServiceImplTests
 {
     public class OccupancyServiceImplTest
     {
-        private Mock<IOccupancyService> _mockRepo;
+        private readonly Mock<IOccupancyService> _mockRepo;
 
-        private OccupancyServiceImpl occupancyServiceImpl = new OccupancyServiceImpl();
+        private readonly OccupancyServiceImpl occupancyServiceImpl = new OccupancyServiceImpl();
 
 
         public OccupancyServiceImplTest()
