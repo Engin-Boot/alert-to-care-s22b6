@@ -4,14 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace alertToCare
+namespace AlertToCare
 {
     public class Startup
     {
@@ -26,10 +25,6 @@ namespace alertToCare
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddSingleton<alertToCare.Service.IIcuConfigurationService, alertToCare.ServiceImpl.ConfigurationImpl>();
-            services.AddSingleton<alertToCare.Service.IOccupancyService, alertToCare.ServiceImpl.OccupancyServiceImpl>();
-            services.AddSingleton<alertToCare.Service.IIcuConfigurationService, alertToCare.ServiceImpl.ConfigurationImpl>();
-            services.AddSingleton<alertToCare.Service.IMonitorService, alertToCare.ServiceImpl.MonitorServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,11 +35,9 @@ namespace alertToCare
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
