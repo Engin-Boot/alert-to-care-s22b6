@@ -12,145 +12,94 @@ namespace alertToCare.Controllers
     [ApiController]
     public class OccupancyController : ControllerBase
     {
-        //readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
+
         readonly Service.IOccupancyService _occupancyService;
-        // OccupancyServiceImpl occupancyServiceImpl = new OccupancyServiceImpl();
+
         public OccupancyController(Service.IOccupancyService repo)
         {
             _occupancyService = repo;
         }
 
 
-
-
-
-        // GET: api/<ValuesController>
-        /*   [HttpGet]
-           public List<CarData> Get()
-           {
-
-                   string cs = "Data Source=:memory:";
-                   string stm = "SELECT SQLITE_VERSION()";
-
-                   using var con = new SQLiteConnection(cs);
-                   con.Open();
-
-                   using var cmd = new SQLiteCommand(stm, con);
-                   string version = cmd.ExecuteScalar().ToString();
-                   return version;
-
-               CarData carData = new CarData();
-               using var con = new SQLiteConnection(cs);
-               con.Open();
-
-               using var cmd = new SQLiteCommand(con);
-
-               cmd.CommandText = "DROP TABLE IF EXISTS cars";
-               cmd.ExecuteNonQuery();
-
-               cmd.CommandText = @"CREATE TABLE cars(id INTEGER PRIMARY KEY,
-                       name TEXT, price INT)";
-               cmd.ExecuteNonQuery();
-
-               cmd.CommandText = "INSERT INTO cars(name, price) VALUES('Audi',52642)";
-               cmd.ExecuteNonQuery();
-
-               cmd.CommandText = "INSERT INTO cars(name, price) VALUES('Mercedes',57127)";
-               cmd.ExecuteNonQuery();
-               using var con = new SQLiteConnection(cs);
-               con.Open();
-               string stm = "SELECT * FROM cars LIMIT 5";
-
-               using var cmd = new SQLiteCommand(stm, con);
-               using SQLiteDataReader rdr = cmd.ExecuteReader();
-               List<CarData> crDt = new List<CarData>();
-               while (rdr.Read())
-               {
-                   CarData carData = new CarData();
-                   carData.Id = rdr.GetInt32(0);
-                   carData.Name = rdr.GetString(1);
-                   carData.Price= rdr.GetInt32(2);
-                   crDt.Add(carData);
-               }
-               return crDt;
-           }*/
-        [HttpGet]
-        public List<PatientData> GetPatientsDetails()
+        [HttpGet("patientdetails/{id}")]
+        public ActionResult<IEnumerable<PatientData>> GetPatientDetails(string PatientId)
         {
             try
             {
-                var res = _occupancyService.GetPatientsDetails();
-                return res;
+                var res = _occupancyService.GetPatientDetails(PatientId);
+                return Ok(res);
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e.Message);
-                return null;
+                return StatusCode(500);
             }
 
         }
 
-        [HttpGet("{id}")]
-        public List<PatientData> GetPatientDetails(int id)
+        [HttpGet("bedStatus/{BedId}")]
+        public ActionResult BedStatus(string BedId)
         {
             try
             {
-                var res = _occupancyService.GetPatientDetails(id);
-                return res;
+                var res = _occupancyService.CheckBedStatus(BedId);
+                return Ok(res);
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e.Message);
-                return null;
+                return StatusCode(500);//InternalServerError
             }
+
 
         }
 
-        [HttpGet("bedStatus/{id}")]
-        public Object BedStatus(string id)
+        [HttpGet("discharge/{PatientId}")]
+        public ActionResult DishchargePatient(string PatientId)
         {
             try
             {
-                return Ok(_occupancyService.CheckBedStatus(id));
+                var res = _occupancyService.DishchargePatient(PatientId);
+                return Ok(res);
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e.Message.ToString());
-                Console.ReadLine();
-                return HttpStatusCode.InternalServerError;
+                return StatusCode(500);
             }
-
-
         }
-        [HttpGet("discharge/{id}")]
-        public Object Dishcharge(int id)
+
+        [HttpPost("AddNewPatient")]
+        public ActionResult AddPatient([FromBody] Model.PatientData value)
         {
             try
             {
-                return Ok(_occupancyService.DishchargePatient(id));
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                _occupancyService.AddNewPatient(value);
+                return StatusCode(201);  //CreatedAtAction
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e.Message.ToString());
-                Console.ReadLine();
-                return HttpStatusCode.InternalServerError;
+                return StatusCode(500);
             }
-
-
         }
 
-        [HttpPost]
-        public String AddPatient([FromBody] Model.PatientData value)
+        [HttpPut("updatePatientInfo/{PatientId}")]
+        public ActionResult UpdatePatientDetails(string PatientId, [FromBody] Model.PatientData value)
         {
-            var res = _occupancyService.AddNewPatient(value);
-            return "Patient Added:" + res.ToString();
-        }
-
-        [HttpPut("{id}")]
-        public string UpdatePatientDetails(int id, [FromBody] Model.PatientData value)
-        {
-            var res = _occupancyService.UpdatePatientInfo(id, value);
-            return "patient details update successfully :" + res.ToString();
+            try
+            {
+                if (!ModelState.IsValid && string.IsNullOrEmpty(PatientId))
+                {
+                    return BadRequest(ModelState);
+                }
+                _occupancyService.UpdatePatientInfo(PatientId, value);
+                return Ok(value);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

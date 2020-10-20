@@ -1,0 +1,36 @@
+<h1>Welcome To Vitals Monitoring Page</h1>
+<fieldset>
+    <legend>Vitals Monitoring</legend>
+   <table>
+     <tr>
+       <td>Bed ID</td>
+       <td> <input type="text" #BedIDTextBox/> </td>
+     </tr>
+     <tr>
+        <td>ICU Id</td>
+        <td> <input type="text" #ICUIIDTextBox/> </td>
+      </tr>
+      <tr>
+        <td>SPO2</td>
+        <td> <input type="text" #SPO2TextBox/> </td>
+      </tr>
+     <tr>
+        <td>BPM</td>
+        <td> <input type="text" #BPMTextBox/> </td>
+      </tr>
+      <tr>
+        <td>RespiratoryRate</td>
+        <td> <input type="text" #RespRateTextBox/> </td>
+      </tr>
+    <tr>
+      <td> <button (click)="AddPatientDetails()">AddPatientDetails</button> </td>
+    </tr>
+    <tr>
+        <td>Vitals Monitoring Result</td>
+        <td> <input type="text" #ResultTextBox/> </td>
+      </tr>
+   </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+

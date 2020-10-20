@@ -20,6 +20,8 @@ namespace alertToCare
             Configuration = configuration;
         }
 
+
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,8 +32,16 @@ namespace alertToCare
             services.AddSingleton<alertToCare.Service.IOccupancyService, alertToCare.ServiceImpl.OccupancyServiceImpl>();
             services.AddSingleton<alertToCare.Service.IIcuConfigurationService, alertToCare.ServiceImpl.ConfigurationImpl>();
             services.AddSingleton<alertToCare.Service.IMonitorService, alertToCare.ServiceImpl.MonitorServiceImpl>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                  "CorsPolicy",
+                  builder => builder.WithOrigins("http://localhost:4200")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials());
+            });
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -41,7 +51,7 @@ namespace alertToCare
             }
 
             //app.UseHttpsRedirection();
-
+            app.UseCors("CorsPolicy");
             app.UseRouting();
 
             //app.UseAuthorization();

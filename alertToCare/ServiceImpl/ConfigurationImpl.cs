@@ -1,4 +1,6 @@
-﻿using alertToCare.Service;
+﻿using alertToCare.Model;
+using alertToCare.Service;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 
@@ -6,35 +8,48 @@ namespace alertToCare.ServiceImpl
 {
     public class ConfigurationImpl : IIcuConfigurationService
     {
-        readonly string cs = @"URI=file:C:\BootCamp\CaseStudy2\alert-to-care-s22b6\test.db";
-        System.Data.SQLite.SQLiteConnection con;
-        System.Data.SQLite.SQLiteCommand cmd;
+        //List<Models.PatientDataModel> _db = new List<PatientDataModel>();
+        List<Model.IcuSetUpData> _db = new List<IcuSetUpData>();
+        // ITransactionManager _tranx;
+        public ConfigurationImpl()
+        {
 
-        public bool AddNewIcu(Model.IcuSetUpData newState)
-        {
-            if (newState != null)
+            _db.Add(new IcuSetUpData
             {
-                con = new SQLiteConnection(cs);
-                con.Open();
-                cmd = new SQLiteCommand(con);
-                cmd.CommandText = "INSERT INTO Icu(NumberOfBeds,LayoutOfBeds) VALUES('" + newState.BedsCount + "','" + newState.Layout + "')";
-                cmd.ExecuteNonQuery();
-                return true;
+                IcuId = "ICU001",
+                BedsCount = 10,
+                Layout = "normal",
             }
-            return false;
+            );
+            _db.Add(new IcuSetUpData
+            {
+                IcuId = "ICU002",
+                BedsCount = 12,
+                Layout = "normal",
+            }
+           );
         }
-        public bool UpdateIcu(int id, Model.IcuSetUpData state)
+        public IcuSetUpData GetIcuDetails(string IcuId)
         {
-            if (state != null)
+            for (int i = 0; i < _db.Count; i++)
             {
-                using var con = new SQLiteConnection(cs);
-                con.Open();
-                string stm = $"UPDATE Icu SET NumberOfBeds = {state.BedsCount} WHERE IcuIdNumber = {id}";
-                using var cmd = new SQLiteCommand(stm, con);
-                using SQLiteDataReader rdr = cmd.ExecuteReader();
-                return true;
+                if (_db[i].IcuId == IcuId)
+                {
+                    return _db[i];
+                }
             }
-            return false;
+            return null;
+        }
+
+
+        void IIcuConfigurationService.AddNewIcu(string IcuId, IcuSetUpData newState)
+        {
+            _db.Add(newState);
+        }
+
+        void IIcuConfigurationService.UpdateIcu(string IcuId, IcuSetUpData state)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

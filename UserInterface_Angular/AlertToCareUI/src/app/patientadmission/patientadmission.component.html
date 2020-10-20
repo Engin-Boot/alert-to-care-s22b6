@@ -1,0 +1,67 @@
+<h1>Welcome To Patient Admission/Discharge Page</h1>
+<fieldset>
+    <legend>Patient Admission Form</legend>
+   <table>
+     <tr>
+       <td>Patient Id</td>
+       <td> <input type="text" #PatientIDTextBox/> </td>
+     </tr>
+     <tr>
+        <td>ICU Id</td>
+        <td> <input type="text" #ICUIIDTextBox/> </td>
+      </tr>
+      <tr>
+        <td>Bed Id</td>
+        <td> <input type="text" #BedIDTextBox/> </td>
+      </tr>
+     <tr>
+        <td>Patient Name</td>
+        <td> <input type="text" #PatientNameTextBox/> </td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td> <input type="text" #AddressTextBox/> </td>
+      </tr>
+      <tr>
+        <td>Email ID</td>
+        <td> <input type="text" #EmailIDTextBox/> </td>
+      </tr>
+    <tr>
+      <td> <button (click)="AddPatientDetails()">AddPatientDetails</button> </td>
+    </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Discharge Patient</legend>
+   <table>
+      <tr>
+        <td>Add Patient ID</td>
+        <td> <input type="text" #PatientIDTextBox/> </td>
+      </tr>
+    <tr>
+      <td> <button (click)="DischargePatient()">DischargePatient</button> </td>
+    </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Get Patient Details</legend>
+   <table>
+      <tr>
+        <td>Add Patient ID</td>
+        <td> <input type="text" #PatientIDTextBox/> </td>
+      </tr>
+      <tr>
+        <td> <button (click)="GetPatientDetails()">GetPatientDetails</button> </td>
+      </tr>
+      <tr>
+       <td>Patient Details</td>
+       <td> <input type="text" #PatientDetailsTextBox/> </td>
+      </tr>
+   </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+<router-outlet></router-outlet>
+  

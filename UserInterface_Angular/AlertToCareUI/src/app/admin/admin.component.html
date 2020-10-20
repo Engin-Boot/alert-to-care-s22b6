@@ -1,0 +1,56 @@
+<h1>Welcome To Admin ICU Configuation Page</h1>
+<fieldset>
+    <legend>Add ICU Details</legend>
+   <table>
+     <tr>
+       <td>Add Bed Count</td>
+       <td> <input type="text" #BedCountTextBox (input)="onBedCountEdit(BedCountTextBox.value)" [value]="bedCount"/> </td>
+     </tr>
+    <tr>
+      <td> <button (click)="AddICUDetails()">AddICUDetails</button> </td>
+      <td> <button (click)="ResetDetails()">ResetDetails</button> </td>
+    </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Update ICU Details</legend>
+   <table>
+      <tr>
+        <td>Add ICU ID</td>
+        <td> <input type="text" #ICUIDTextBox1/> </td>
+      </tr>
+     <tr>
+       <td>Add Bed Count</td>
+       <td> <input type="text" #BedCountTextBox1/> </td>
+     </tr>
+    <tr>
+      <td> <button (click)="UpdateICUDetails()">UpdateICUDetails</button> </td>
+    </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Get ICU Details</legend>
+   <table>
+      <tr>
+        <td>Add ICU ID</td>
+        <td> <input type="text" #ICUIDTextBox (input)="onICUIDEdit(ICUIDTextBox.value)" [value]="icuId"/> </td>
+      </tr>
+      <tr>
+        <td> <button (click)="GetICUDetails()">GetICUDetails</button> </td>
+      </tr>
+      <tr>
+       <td>ICU Bed Count</td>
+       <td> <input type="text" #ICUBedCountTextBox [value]="icuBedCount"/> </td>
+      </tr>
+      <ul id="resultDashboard">
+
+      </ul>
+
+   </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+<router-outlet></router-outlet>
+  

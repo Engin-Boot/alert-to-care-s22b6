@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace alertToCare
 {
-   abstract public class Program
+    abstract public class Program
     {
         public static void Main(string[] args)
         {

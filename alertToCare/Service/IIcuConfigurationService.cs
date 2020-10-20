@@ -1,10 +1,13 @@
-﻿using System;
+﻿using alertToCare.Model;
+using System;
+using System.Net;
 
 namespace alertToCare.Service
 {
     public interface IIcuConfigurationService
     {
-        public bool AddNewIcu(Model.IcuSetUpData newState);
-        public bool UpdateIcu(int id, Model.IcuSetUpData state);
+        public void AddNewIcu(string IcuId, Model.IcuSetUpData newState);
+        public void UpdateIcu(string IcuId, Model.IcuSetUpData state);
+        public IcuSetUpData GetIcuDetails(string IcuId);
     }
 }
