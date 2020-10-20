@@ -1,0 +1,181 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj",
+        "projectName": "DatabaseManager",
+        "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj",
+        "packagesPath": "C:\\Users\\320088165\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\320088165\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\Models.csproj",
+        "projectName": "Models",
+        "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\320088165\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\320088165\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj",
+        "projectName": "RepositoryManager",
+        "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj",
+        "packagesPath": "C:\\Users\\320088165\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\320088165\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj": {
+                "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

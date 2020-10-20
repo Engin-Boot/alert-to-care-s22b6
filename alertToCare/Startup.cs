@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DatabaseManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
 
 namespace AlertToCare
 {
@@ -24,7 +22,26 @@ namespace AlertToCare
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+            services.AddDbContext<DatabaseContext>
+                (options =>
+                options.UseSqlite($"Data Source= {FileNameConfig()}.db"));
+            services.AddSingleton<RepositoryManager.FacilityManager.IFacilityDataHandler,
+                RepositoryManager.FacilityManager.FacilityDataHandler>();
+            services.AddSingleton<RepositoryManager.PatientManager.IPatientDataHandler,
+               RepositoryManager.PatientManager.PatientDataHandler>();
+            services.AddSingleton<RepositoryManager.VitalManager.IVitalDataHandler,
+               RepositoryManager.VitalManager.VitalDataHandler>();
+
+        }
+
+        private static string FileNameConfig()
+        {
+            string path = new DirectoryInfo
+                           (Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
+            string fileName = string.Concat(path, "AlertToCare.db");
+            return fileName;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
