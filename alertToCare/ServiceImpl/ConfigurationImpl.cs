@@ -49,7 +49,14 @@ namespace alertToCare.ServiceImpl
 
         void IIcuConfigurationService.UpdateIcu(string IcuId, IcuSetUpData state)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _db.Count; i++)
+            {
+                if (_db[i].IcuId == IcuId)
+                {
+                    _db.Insert(i, state);
+                }
+            }
+            
         }
     }
 }

@@ -2,9 +2,13 @@
 <fieldset>
     <legend>Add ICU Details</legend>
    <table>
+    <tr>
+      <td>Add ICU ID</td>
+      <td> <input type="text" #IcuIdTextBox (input)="onIcuIdAddEdit(IcuIdTextBox.value)" [value]="icuIdAdd"/> </td>
+    </tr>
      <tr>
        <td>Add Bed Count</td>
-       <td> <input type="text" #BedCountTextBox (input)="onBedCountEdit(BedCountTextBox.value)" [value]="bedCount"/> </td>
+       <td> <input type="text" #BedCountTextBox (input)="onBedCountAddEdit(BedCountTextBox.value)" [value]="bedCountAdd"/> </td>
      </tr>
     <tr>
       <td> <button (click)="AddICUDetails()">AddICUDetails</button> </td>
@@ -18,11 +22,11 @@
    <table>
       <tr>
         <td>Add ICU ID</td>
-        <td> <input type="text" #ICUIDTextBox1/> </td>
+        <td> <input type="text" #ICUIDTextBox1 (input)="onIcuIdUpdateEdit(ICUIDTextBox1.value)" [value]="icuIdUpdate"/> </td>
       </tr>
      <tr>
        <td>Add Bed Count</td>
-       <td> <input type="text" #BedCountTextBox1/> </td>
+       <td> <input type="text" #BedCountTextBox1 (input)="onBedCountUpdateEdit(BedCountTextBox1.value)" [value]="bedCountUpdate"/> </td>
      </tr>
     <tr>
       <td> <button (click)="UpdateICUDetails()">UpdateICUDetails</button> </td>
@@ -35,14 +39,14 @@
    <table>
       <tr>
         <td>Add ICU ID</td>
-        <td> <input type="text" #ICUIDTextBox (input)="onICUIDEdit(ICUIDTextBox.value)" [value]="icuId"/> </td>
+        <td> <input type="text" #ICUIDTextBox2 (input)="onIcuIdGetEdit(ICUIDTextBox2.value)" [value]="icuIdGet"/> </td>
       </tr>
       <tr>
         <td> <button (click)="GetICUDetails()">GetICUDetails</button> </td>
       </tr>
       <tr>
        <td>ICU Bed Count</td>
-       <td> <input type="text" #ICUBedCountTextBox [value]="icuBedCount"/> </td>
+       <td> <input type="text" #ICUBedCountTextBox [value]="bedCountGet"/> </td>
       </tr>
       <ul id="resultDashboard">
 

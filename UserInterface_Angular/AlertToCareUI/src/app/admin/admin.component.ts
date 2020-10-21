@@ -7,66 +7,90 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  bedCount:string;
-  icuId:string;
-  icuBedCount:string;
+//add
+  bedCountAdd:string;
+  icuIdAdd:string;
+//update 
+  icuIdUpdate:string;
+  bedCountUpdate:string;
+//get
+  bedCountGet:string;
+  icuIdGet:string;
 
   
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  onBedCountEdit(value){
-    this.bedCount=value;
+//Add new icu id
+  onIcuIdAddEdit(value){
+    this.icuIdAdd=value;
   }
-  onICUIDEdit(value){
-    this.icuId=value;
+  onBedCountAddEdit(value){
+    this.bedCountAdd=value;
   }
+  //update
+  onIcuIdUpdateEdit(value){
+    this.icuIdUpdate=value;
+  }
+  onBedCountUpdateEdit(value){
+    this.bedCountUpdate=value;
+  }
+  //get
+  onIcuIdGetEdit(value){
+    this.icuIdGet=value;
+  }
+ 
 
 
   AddICUDetails(){
-    //not working
-    //send json body for post request
-    var searchKey="ICU003";
-            //AJAX Request - Asynchronous Http Request;
-           var httpReq = new XMLHttpRequest();
-            //this.icuBedCount=httpReq.responseText[0];
-            var url = "http://localhost:53133/api/configuration/AddIcu/";
-
-            var data = {};
-           {
-             data=this.bedCount;
-           }
-
-            
+  
+            var searchKey=this.icuIdAdd;
+            var data = { icuId: this.icuIdAdd, bedsCount: parseInt(this.bedCountAdd), layout: "Normal" };
+    
             var json = JSON.stringify(data);
-            
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
-            
+            var   httpReq = new XMLHttpRequest();
+            httpReq.open("POST", "http://localhost:53133/api/configuration/AddIcu/" + searchKey, true);
+            httpReq.setRequestHeader('Content-type','application/json; charset=utf-8');
+          
             //registering callback - to get updates on status of http request
             httpReq.onreadystatechange = function () {
-              console.log("callback");
-              if (httpReq.readyState == 4) {
+                console.log("callback");
+                if (httpReq.readyState == 4) {
 
-                  var liTag = document.createElement("li");
-                  liTag.innerText = httpReq.responseText;
-                  document.getElementById("resultDashboard").appendChild(liTag);
-                  var users = JSON.parse(xhr.responseText);
-              }
-          }
-            xhr.send(this.bedCount);
+                    var liTag = document.createElement("li");
+                    liTag.innerText = httpReq.responseText;
+                    document.getElementById("resultDashboard").appendChild(liTag);
+                }
+            }
+
+            httpReq.send(json);
   }
 
   UpdateICUDetails(){
-    alert("ICU details updated successfully");
+           var searchKey=this.icuIdUpdate;
+            var data = { icuId: this.icuIdUpdate, bedsCount: parseInt(this.bedCountUpdate), layout: "Normal" };
+    
+            var json = JSON.stringify(data);
+            var   httpReq = new XMLHttpRequest();
+            httpReq.open("PUT", "http://localhost:53133/api/configuration/UpdateIcu/" + searchKey, true);
+            httpReq.setRequestHeader('Content-type','application/json; charset=utf-8');
+     //registering callback - to get updates on status of http request
+            httpReq.onreadystatechange = function () {
+            console.log("callback");
+            if (httpReq.readyState == 4) {
+
+            var liTag = document.createElement("li");
+            liTag.innerText = httpReq.responseText;
+            document.getElementById("resultDashboard").appendChild(liTag);
+      }
+  }
+
+  httpReq.send(json);
   }
   GetICUDetails(){
     //var searchKey = window.document.getElementById('ICUIDTextBox');
-    var searchKey=this.icuId;
+    var searchKey=this.icuIdGet;
             //AJAX Request - Asynchronous Http Request;
            var   httpReq = new XMLHttpRequest();
             httpReq.open("GET", "http://localhost:53133/api/configuration/IcuDetails/" + searchKey, true);
@@ -85,6 +109,7 @@ export class AdminComponent implements OnInit {
             httpReq.send();
   }
   ResetDetails(){
-    this.bedCount="";
+    this.bedCountAdd="";
+    this.icuIdAdd="";
   }
 }
