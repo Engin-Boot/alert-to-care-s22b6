@@ -22,7 +22,7 @@ namespace RepositoryManager.VitalManager
                 .Where(p => p.BedId == info.BedId && p.IcuId == info.IcuId)
                 .FirstOrDefault()
             };
-         }
+        }
 
 
         private VitalStatus.Status BpmIsOk(DoubleLimits dlimits, double bpm)

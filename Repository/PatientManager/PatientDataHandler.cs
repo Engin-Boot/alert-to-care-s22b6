@@ -1,32 +1,27 @@
 ﻿using DatabaseManager;
 using Models;
-using RepositoryManager.PatientManager;
-using System;
-using System.Collections.Generic;
+using RepositoryManager.Utilities;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace RepositoryManager.PatientManager
 {
     public class PatientDataHandler : IPatientDataHandler
     {
-        public HttpStatusCode AddPatientToDatabase(Patient info,DatabaseContext _context)
+        public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context)
         {
-            if (_context.Facilities.Find(info.IcuId).OccupiedBeds.Contains(info.BedId))
+            if (BedListAssist.IsBedOccupied(
+                _context,info.IcuId,info.BedId))
                 return HttpStatusCode.Forbidden;
 
             info.Id = GenerateId(_context);
-            _context.Facilities.Find(info.IcuId).OccupiedBeds.Add(info.BedId);
-
-            _context.Entry(_context.Facilities.Find(info.IcuId))
-                .Property("OccupiedBeds").IsModified = true;
+            BedListAssist.AddBedOccupancy(_context, info.IcuId, info.BedId);
 
             _context.Patients.AddAsync(info);
             _context.SaveChangesAsync();
 
             return HttpStatusCode.OK;
-            
+
         }
 
         public HttpStatusCode RemovePatientFromDb(int id, DatabaseContext _context)
@@ -35,6 +30,8 @@ namespace RepositoryManager.PatientManager
 
             if (Dinfo == null)
                 return HttpStatusCode.NotFound;
+
+            BedListAssist.ChangeBedStatusToAvailable(_context, Dinfo.IcuId, Dinfo.BedId);
 
             _context.Remove(Dinfo);
             _context.SaveChangesAsync();

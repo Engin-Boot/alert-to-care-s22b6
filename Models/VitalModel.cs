@@ -20,7 +20,7 @@ namespace Models
 
     public class VitalStatus
     {
-        public enum Status { Above, Normal, Below};
+        public enum Status { Above, Normal, Below };
 
         public Patient PatientInfo { get; set; }
         public string Bpm { get; set; }
@@ -31,9 +31,9 @@ namespace Models
     public class VitalLimits
     {
         public DoubleLimits BpmLimits { get; set; }
-        public double Spo2Min { get; set; } 
+        public double Spo2Min { get; set; }
         public DoubleLimits RespRateLimits { get; set; }
-      
+
     }
     public class DoubleLimits
     {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using DatabaseManager;
+﻿using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using RepositoryManager.PatientManager;
+using System;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,7 +27,7 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                return _handler.RemovePatientFromDb(Int16.Parse(PatientId),_context);
+                return _handler.RemovePatientFromDb(Int16.Parse(PatientId), _context);
             }
             catch
             {
@@ -47,7 +44,7 @@ namespace AlertToCare.Controllers
                 {
                     return HttpStatusCode.BadRequest;
                 }
-                return _handler.AddPatientToDatabase(info,_context);
+                return _handler.AddPatientToDatabase(info, _context);
             }
             catch
             {

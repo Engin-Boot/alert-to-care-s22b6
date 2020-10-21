@@ -1,9 +1,8 @@
-using System;
-using Xunit;
+﻿using Xunit;
 
 namespace AlertToCareTest
 {
-    public class UnitTest1
+    public class VitalManagerTest
     {
         [Fact]
         public void Test1()

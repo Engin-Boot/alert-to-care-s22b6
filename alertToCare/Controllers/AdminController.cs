@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using DatabaseManager;
+﻿using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using RepositoryManager.FacilityManager;
+using System;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,14 +23,14 @@ namespace AlertToCare.Controllers
             _handler = handler;
         }
 
-        [HttpPost("AddIcu/{IcuId}")]
-        public HttpStatusCode AddIcu(string IcuId)
+        [HttpPost("AddIcu/{BedCount}")]
+        public HttpStatusCode AddIcu(string BedCount)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return HttpStatusCode.BadRequest;
-                return _handler.AddNewIcu(Int16.Parse(IcuId),_context);
+                return _handler.AddNewIcu(Int16.Parse(BedCount), _context);
             }
             catch
             {
@@ -66,7 +63,7 @@ namespace AlertToCare.Controllers
             }
             catch
             {
-                return StatusCode(500);  
+                return StatusCode(500);
             }
 
         }

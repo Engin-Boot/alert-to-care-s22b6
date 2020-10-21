@@ -6,12 +6,7 @@ namespace Models
     {
         public int Id { get; set; }
         public int BedCount { get; set; }
-        public List<BedList> OccupiedBeds { get; set; }
-    }
-
-    public class BedList
-    {
-        public int BedId { get; set; }
+        public string OccupiedBeds { get; set; }
     }
 
     public class ListOfFacility

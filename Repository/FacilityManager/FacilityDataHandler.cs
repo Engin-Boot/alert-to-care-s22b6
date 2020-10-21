@@ -1,11 +1,8 @@
 ﻿using DatabaseManager;
 using Models;
-using RepositoryManager.FacilityManager;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace RepositoryManager.FacilityManager
 {
@@ -17,7 +14,7 @@ namespace RepositoryManager.FacilityManager
             {
                 BedCount = TotalBeds,
                 Id = GenerateId(_context),
-                OccupiedBeds = new List<int>() { }
+                OccupiedBeds = ""
             };
 
             _context.Facilities.AddAsync(info);
@@ -30,7 +27,7 @@ namespace RepositoryManager.FacilityManager
         {
             var Dinfo = _context.Facilities.Find(info.Id);
 
-            if ( Dinfo == null)
+            if (Dinfo == null)
                 return HttpStatusCode.NotFound;
 
             Dinfo.BedCount = info.BedCount;

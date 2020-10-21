@@ -30,9 +30,6 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj": {
-                "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\DatabaseManager\\DatabaseManager.csproj"
-              },
               "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj": {
                 "projectPath": "C:\\Users\\320088165\\OneDrive - Philips\\Documents\\Bootcamp\\alert-to-care-s22b6\\Repository\\RepositoryManager.csproj"
               }
@@ -121,6 +118,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
