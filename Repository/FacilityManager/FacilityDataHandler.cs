@@ -1,6 +1,5 @@
 ﻿using DatabaseManager;
 using Models;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
@@ -38,15 +37,12 @@ namespace RepositoryManager.FacilityManager
             return HttpStatusCode.OK;
         }
 
-        public IEnumerable<Facility> GetAllIcuDetails(DatabaseContext _context)
-        {
-            return _context.Facilities.ToList();
-        }
+        public ListOfFacility GetAllIcuDetails(DatabaseContext _context) =>
+           new ListOfFacility()
+           { FacilityList = _context.Facilities.ToList() };
 
-        public Facility GetIcuDetailsById(int id, DatabaseContext _context)
-        {
-            return _context.Facilities.Find(id);
-        }
+        public Facility GetIcuDetailsById(int id, DatabaseContext _context) =>
+                 _context.Facilities.Find(id);
 
         public static int GenerateId(DatabaseContext _context)
         {

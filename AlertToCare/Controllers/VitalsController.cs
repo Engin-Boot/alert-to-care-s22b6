@@ -26,7 +26,7 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                if (!BedListAssist.IsBedOccupied(_context,info.IcuId,info.BedId))
+                if (!BedListAssist.IsBedOccupied(_context, info.IcuId, info.BedId))
                     return StatusCode(404);
 
                 return Ok(_handler.MonitorVitals(info, _context));

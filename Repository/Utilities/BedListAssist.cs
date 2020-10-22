@@ -9,7 +9,7 @@ namespace RepositoryManager.Utilities
     {
         public static bool IsBedOccupied(DatabaseContext _context, int IcuId, int BedId) =>
             SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds)
-                    .Contains(BedId.ToString()); 
+                    .Contains(BedId.ToString());
 
         private static List<string> SpiltString(string occupiedBeds) =>
              occupiedBeds.Split(',').ToList();
@@ -21,7 +21,7 @@ namespace RepositoryManager.Utilities
             SaveContext(_context, IcuId, JoinString(Beds));
         }
 
-        private static void SaveContext(DatabaseContext _context,int IcuId, string olist)
+        private static void SaveContext(DatabaseContext _context, int IcuId, string olist)
         {
 
             var IcuEntity = _context.Facilities.Find(IcuId);
@@ -34,14 +34,14 @@ namespace RepositoryManager.Utilities
         private static string JoinString(List<string> beds)
         {
             return String.Join(",", beds);
-            
+
         }
 
         public static void ChangeBedStatusToAvailable(DatabaseContext _context, int IcuId, int BedId)
         {
             List<string> Beds = SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds);
             Beds.Remove(BedId.ToString());
-            SaveContext(_context,IcuId, JoinString(Beds));
+            SaveContext(_context, IcuId, JoinString(Beds));
         }
     }
 }

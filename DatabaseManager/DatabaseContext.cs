@@ -18,12 +18,12 @@ namespace DatabaseManager
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-             options.UseSqlite(
-                $"Data source = {FileNameConfig()}",
-                optionsBuilder =>
-                        optionsBuilder.MigrationsAssembly(
-                            typeof(DatabaseContext).Namespace)
-                );
+            options.UseSqlite(
+               $"Data source = {FileNameConfig()}",
+               optionsBuilder =>
+                       optionsBuilder.MigrationsAssembly(
+                           typeof(DatabaseContext).Namespace)
+               );
             base.OnConfiguring(options);
         }
 

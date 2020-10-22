@@ -9,7 +9,7 @@ namespace RepositoryManager.FacilityManager
     {
         HttpStatusCode AddNewIcu(int TotalBeds, DatabaseContext _context);
         HttpStatusCode UpdateIcu(Facility info, DatabaseContext _context);
-        IEnumerable<Facility> GetAllIcuDetails(DatabaseContext _context);
+        ListOfFacility GetAllIcuDetails(DatabaseContext _context);
         Facility GetIcuDetailsById(int id, DatabaseContext _context);
     }
 }

@@ -10,11 +10,15 @@ namespace RepositoryManager.PatientManager
     {
         public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context)
         {
+            info.Id = GenerateId(_context);
+
+            if (info.Id > _context.Facilities.Find(info.IcuId).BedCount)
+                return HttpStatusCode.Ambiguous;
+
             if (BedListAssist.IsBedOccupied(
-                _context,info.IcuId,info.BedId))
+                _context, info.IcuId, info.BedId))
                 return HttpStatusCode.Forbidden;
 
-            info.Id = GenerateId(_context);
             BedListAssist.AddBedOccupancy(_context, info.IcuId, info.BedId);
 
             _context.Patients.AddAsync(info);
@@ -39,6 +43,12 @@ namespace RepositoryManager.PatientManager
             return HttpStatusCode.OK;
         }
 
+        public ListOfPatients GetAllPatients(DatabaseContext _context) =>
+           new ListOfPatients()
+           { PatientList = _context.Patients.ToList() };
+
+        public Patient GetPatientById(int id, DatabaseContext _context) =>
+            _context.Patients.Find(id);
 
         private static int GenerateId(DatabaseContext _context)
         {

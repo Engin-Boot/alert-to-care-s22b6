@@ -8,6 +8,7 @@ namespace RepositoryManager.PatientManager
     {
         HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context);
         HttpStatusCode RemovePatientFromDb(int id, DatabaseContext _context);
-
+        ListOfPatients GetAllPatients(DatabaseContext _context);
+        Patient GetPatientById(int id, DatabaseContext _context);
     }
 }

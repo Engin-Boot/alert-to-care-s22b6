@@ -51,5 +51,33 @@ namespace AlertToCare.Controllers
                 return HttpStatusCode.InternalServerError;
             }
         }
+
+        [HttpGet("PatientDetails/{Pid}")]
+        public ActionResult GetPatientDetailsById(string Pid)
+        {
+            try
+            {
+                return Ok(_handler.GetPatientById(Int16.Parse(Pid), _context));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+
+        }
+
+        [HttpGet("AllPatientDetails")]
+        public ActionResult GetAllPatientDetails()
+        {
+            try
+            {
+                return Ok(_handler.GetAllPatients(_context));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+
+        }
     }
 }

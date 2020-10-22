@@ -67,6 +67,20 @@ namespace AlertToCare.Controllers
             }
 
         }
+
+        [HttpGet("AllIcuDetails")]
+        public ActionResult GetAllIcuDetails()
+        {
+            try
+            {
+                return Ok(_handler.GetAllIcuDetails(_context));
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+
+        }
     }
 }
 
