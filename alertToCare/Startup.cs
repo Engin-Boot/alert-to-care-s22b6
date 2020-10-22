@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DatabaseManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
 
-namespace alertToCare
+namespace AlertToCare
 {
     public class Startup
     {
@@ -25,11 +22,18 @@ namespace alertToCare
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
-            //services.AddSingleton<alertToCare.Service.IIcuConfigurationService, alertToCare.ServiceImpl.ConfigurationImpl>();
-            services.AddSingleton<alertToCare.Service.IOccupancyService, alertToCare.ServiceImpl.OccupancyServiceImpl>();
-            services.AddSingleton<alertToCare.Service.IIcuConfigurationService, alertToCare.ServiceImpl.ConfigurationImpl>();
-            services.AddSingleton<alertToCare.Service.IMonitorService, alertToCare.ServiceImpl.MonitorServiceImpl>();
+
+            services.AddDbContext<DatabaseContext>();
+
+            services.AddSingleton<RepositoryManager.FacilityManager.IFacilityDataHandler,
+                RepositoryManager.FacilityManager.FacilityDataHandler>();
+            services.AddSingleton<RepositoryManager.PatientManager.IPatientDataHandler,
+               RepositoryManager.PatientManager.PatientDataHandler>();
+            services.AddSingleton<RepositoryManager.VitalManager.IVitalDataHandler,
+               RepositoryManager.VitalManager.VitalDataHandler>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,11 +44,9 @@ namespace alertToCare
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
