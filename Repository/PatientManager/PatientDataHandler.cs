@@ -43,8 +43,8 @@ namespace RepositoryManager.PatientManager
         private static int GenerateId(DatabaseContext _context)
         {
             if (_context.Patients.Any())
-                return _context.Patients.Max(f => f.Id);
-            return 1;
+                return _context.Patients.Max(f => f.Id) + 1;
+            return default(int) + 1;
         }
     }
 }

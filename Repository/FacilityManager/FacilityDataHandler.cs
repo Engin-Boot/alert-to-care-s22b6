@@ -51,8 +51,8 @@ namespace RepositoryManager.FacilityManager
         public static int GenerateId(DatabaseContext _context)
         {
             if (_context.Facilities.Any())
-                return _context.Facilities.Max(f => f.Id);
-            return 1;
+                return _context.Facilities.Max(f => f.Id) + 1;
+            return default(int) + 1;
         }
 
     }
