@@ -38,22 +38,15 @@ export class VitalsmonitoringComponent implements OnInit {
     
      var data=
      {
-        //  IcuId:parseInt(this.icuIdVital),
-        //  BedId:parseInt(this.bedIdVital),
-        //  Vital:
-        //  {
-        //     Bpm: parseFloat(this.bpmVital),
-        //     Spo2:parseFloat(this.spo2Vital),
-        //     RespRate:parseFloat(this.respVital)
-        //  }
-        IcuId:1,
-         BedId:1,
+         IcuId:parseInt(this.icuIdVital),
+         BedId:parseInt(this.bedIdVital),
          Vital:
          {
-            Bpm: 98,
-            Spo2:98,
-            RespRat:60
+             Bpm: parseFloat(this.bpmVital),
+             Spo2:parseFloat(this.spo2Vital),
+             RespRate:parseFloat(this.respVital)
          }
+        
       };
 
     var json = JSON.stringify(data);

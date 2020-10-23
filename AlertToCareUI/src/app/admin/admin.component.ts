@@ -96,7 +96,7 @@ export class AdminComponent implements OnInit {
                 if(httpReq.status==200) {
                  
                     var obj = JSON.parse(httpReq.responseText);
-                    document.getElementById("resultDashboardICUbyid").innerHTML="ICU Id="+obj.id +"  Bed Count="+obj.bedCount +"  Occupied Bed Count=" +obj.occupiedBeds;
+                    document.getElementById("resultDashboardICUbyid").innerHTML="ICU Id="+obj.id +"  Bed Count="+obj.bedCount +"  Occupied Bed=" +obj.occupiedBeds;
                 }
                 else{
                   document.getElementById("resultDashboardICUbyid").innerHTML="Request Status="+httpReq.status+" Enter appropriate Icu Id";

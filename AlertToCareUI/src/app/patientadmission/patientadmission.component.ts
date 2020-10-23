@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientadmissionComponent implements OnInit {
 //add patient
-  patientIdAdd:string="";
+ 
   patientNameAdd:string="";
   contactNoAdd:string="";
   icuIdIdAdd:string="";
@@ -22,9 +22,7 @@ export class PatientadmissionComponent implements OnInit {
   ngOnInit(): void {
   }
   //add patient details
-  onPatientIdAddEdit(value){
-  this.patientIdAdd=value;
-  }
+ 
   onPatientNameAddEdit(value){
     this.patientNameAdd=value;
   }
@@ -81,11 +79,11 @@ export class PatientadmissionComponent implements OnInit {
     httpReq.onreadystatechange = function () {
         console.log("callback");
         if (httpReq.readyState == 4) {
-          if(httpReq.status==200){
+          if(httpReq.responseText=="200"){
             document.getElementById("resultDashboarddischargepatient").innerHTML="Patient Discharged Successfully";
           }
           else{
-            document.getElementById("resultDashboarddischargepatient").innerHTML="Request Status="+httpReq.status + "  Enter appropriate Patient Id";
+            document.getElementById("resultDashboarddischargepatient").innerHTML="Request Status="+httpReq.responseText + "  Enter appropriate Patient Id";
           }
         }
     }
@@ -140,7 +138,6 @@ export class PatientadmissionComponent implements OnInit {
   ResetAddPatientDetails(){
     this.bedIdAdd="";
     this.icuIdIdAdd="";
-    this.patientIdAdd="";
     this.patientNameAdd="";
     this.contactNoAdd="";
     document.getElementById("resultDashboardAddpatient").innerHTML="";
