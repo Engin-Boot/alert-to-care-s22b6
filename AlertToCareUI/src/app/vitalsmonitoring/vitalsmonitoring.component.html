@@ -1,0 +1,35 @@
+<h1>Welcome To Vitals Monitoring Page</h1>
+<fieldset>
+    <legend>Vitals Monitoring</legend>
+   <table>
+     <tr>
+       <td>Bed ID</td>
+       <td> <input type="text" #BedIDVitalTextBox (input)="onBedIdVitalEdit(BedIDVitalTextBox.value)" [value]="bedIdVital"/> </td>
+     </tr>
+     <tr>
+        <td>ICU Id</td>
+        <td> <input type="text" #ICUIIDVitalTextBox (input)="onIcuIdVitalEdit(ICUIIDVitalTextBox.value)" [value]="icuIdVital"/> </td>
+      </tr>
+      <tr>
+        <td>SPO2</td>
+        <td> <input type="text" #SPO2VitalTextBox (input)="onSpo2VitalEdit(SPO2VitalTextBox.value)" [value]="spo2Vital"/> </td>
+      </tr>
+     <tr>
+        <td>BPM</td>
+        <td> <input type="text" #BPMVitalTextBox (input)="onBpmVitalEdit(BPMVitalTextBox.value)" [value]="bpmVital"/> </td>
+      </tr>
+      <tr>
+        <td>RespiratoryRate</td>
+        <td> <input type="text" #RespRateVitalTextBox (input)="onRespVitalEdit(RespRateVitalTextBox.value)" [value]="respVital"/> </td>
+      </tr>
+    <tr>
+      <td> <button (click)="AddVitalsDetails()">Check Vitals Status</button> </td>
+      <td> <button (click)="ResetVitalsDetails()">ResetDetails</button> </td>
+    </tr>
+    <ul id="resultvitals">
+    </ul>
+   </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+

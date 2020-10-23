@@ -21,7 +21,7 @@ namespace AlertToCare.Controllers
             _handler = handler;
         }
 
-        [HttpGet("Monitor")]
+        [HttpPost("Monitor")]
         public ActionResult MonitorVitals([FromBody] VitalModel info)
         {
             try

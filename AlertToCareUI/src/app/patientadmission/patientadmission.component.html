@@ -1,0 +1,86 @@
+<h1>Welcome To Patient Admission/Discharge Page</h1>
+<fieldset>
+    <legend>Patient Admission Form</legend>
+   <table>
+     <tr>
+       <td>Patient Id</td>
+       <td> <input type="text" #PatientIdAddTextBox (input)="onPatientIdAddEdit(PatientIdAddTextBox.value)" [value]="patientIdAdd"/> </td>
+     </tr>
+     <tr>
+        <td>Patient Name</td>
+        <td> <input type="text" #PatientNameAddTextBox (input)="onPatientNameAddEdit(PatientNameAddTextBox.value)" [value]="patientNameAdd"/> </td>
+      </tr>
+      <tr>
+        <td>Contact No</td>
+        <td> <input type="text" #ContactNoAddTextBox (input)="onContactNoAddEdit(ContactNoAddTextBox.value)" [value]="contactNoAdd"/> </td>
+      </tr>
+      <tr>
+        <td>ICU Id</td>
+        <td> <input type="text" #IcuIdAddTextBox (input)="onIcuIdAddEdit(IcuIdAddTextBox.value)" [value]="icuIdIdAdd"/> </td>
+      </tr>
+      <tr>
+        <td>Bed Id</td>
+        <td> <input type="text" #BedIdAddTextBox (input)="onBedIdAddEdit(BedIdAddTextBox.value)" [value]="bedIdAdd"/> </td>
+      </tr>
+     
+    <tr>
+      <td> <button (click)="AddPatientDetails()">AddPatientDetails</button> </td>
+      <td> <button (click)="ResetAddPatientDetails()">ResetDetails</button> </td>
+      
+    </tr>
+    <ul id="resultDashboardAddpatient">
+    </ul>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Discharge Patient</legend>
+   <table>
+      <tr>
+        <td>Add Patient ID</td>
+        <td> <input type="text" #PatientIDdischargeTextBox (input)="onPatientIddischargeEdit(PatientIDdischargeTextBox.value)" [value]="patientIddischarge"/> </td>
+      </tr>
+    <tr>
+      <td> <button (click)="DischargePatient()">DischargePatient</button> </td>
+      <td> <button (click)="ResetDischargePatientDetails()">ResetDetails</button> </td>
+    </tr>
+    <ul id="resultDashboarddischargepatient">
+    </ul>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Get Patient Details</legend>
+   <table>
+      <tr>
+        <td>Add Patient ID</td>
+        <td> <input type="text" #PatientIDTextBox1 (input)="onPatientIdEdit1(PatientIDTextBox1.value)" [value]="patientId1"/> </td>
+      </tr>
+      <tr>
+        <td> <button (click)="GetPatientDetails()">GetPatientDetails</button> </td>
+        <td> <button (click)="ResetGetPatientDetails()">ResetDetails</button> </td>
+      </tr>
+      <tr>
+        <td>ICU details:</td>
+        <td>  <ul id="resultDashboard1"></ul> </td>
+       </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+  <legend>Get All Patient Details</legend>
+ <table>
+    <tr>
+      <td> <button (click)="GetAllPatientDetails()">GetAllPatientDetails</button> </td>
+      <td> <button (click)="ResetGetAllPatientDetails()">ResetDetails</button> </td>
+    </tr>
+    <tr>
+      <td>ICU details:</td>
+      <td>  <ul id="resultDashboardall"></ul> </td>
+     </tr>
+ </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+<router-outlet></router-outlet>
+  

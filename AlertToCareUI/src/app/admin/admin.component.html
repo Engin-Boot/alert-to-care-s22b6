@@ -1,0 +1,72 @@
+<h1>Welcome To Admin ICU Configuation Page</h1>
+<fieldset>
+    <legend>Add ICU Details</legend>
+   <table>
+     <tr>
+       <td>Add Bed Count</td>
+       <td> <input type="text" #BedCountTextBox (input)="onBedCountAddEdit(BedCountTextBox.value)" [value]="bedCountAdd"/> </td>
+     </tr>
+    <tr>
+      <td> <button (click)="AddICUDetails()">AddICUDetails</button> </td>
+      <td> <button (click)="ResetAddDetails()">ResetDetails</button> </td>
+    </tr>
+    <ul id="resultDashboardAddIcu">
+    </ul>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Update ICU Details</legend>
+   <table>
+      <tr>
+        <td>Add ICU ID</td>
+        <td> <input type="text" #ICUIDTextBox1 (input)="onIcuIdUpdateEdit(ICUIDTextBox1.value)" [value]="icuIdUpdate"/> </td>
+      </tr>
+     <tr>
+       <td>Add Bed Count</td>
+       <td> <input type="text" #BedCountTextBox1 (input)="onBedCountUpdateEdit(BedCountTextBox1.value)" [value]="bedCountUpdate"/> </td>
+     </tr>
+    <tr>
+      <td> <button (click)="UpdateICUDetails()">UpdateICUDetails</button> </td>
+      <td> <button (click)="ResetUpdateDetails()">ResetDetails</button> </td>
+    </tr>
+    <ul id="resultDashboardUpdateIcu">
+    </ul>
+   </table>
+</fieldset>
+
+<fieldset>
+    <legend>Get ICU Details</legend>
+   <table>
+      <tr>
+        <td>Add ICU ID</td>
+        <td> <input type="text" #ICUIDTextBox2 (input)="onIcuIdGetEdit(ICUIDTextBox2.value)" [value]="icuIdGet"/> </td>
+      </tr>
+      <tr>
+        <td> <button (click)="GetICUDetails()">GetICUDetails</button> </td>
+        <td> <button (click)="ResetGetDetails()">ResetDetails</button> </td>
+      </tr>
+      <tr>
+       <td>ICU details:</td>
+       <td>  <ul id="resultDashboardICUbyid"></ul> </td>
+      </tr>
+   </table>
+</fieldset>
+
+<fieldset>
+  <legend>Get All ICU Details</legend>
+ <table>
+    <tr>
+      <td> <button (click)="GetAllICUDetails()">GetALLICUDetails</button> </td>
+      <td> <button (click)=" ResetGetAllDetails()">ResetDetails</button> </td>
+    </tr>
+    <tr>
+      <td>ICU details:</td>
+      <td>  <ul id="resultDashboardAllICU"></ul> </td>
+     </tr>
+ </table>
+</fieldset>
+
+<a routerLink="/home">Home Page</a>
+<router-outlet></router-outlet>
+  
