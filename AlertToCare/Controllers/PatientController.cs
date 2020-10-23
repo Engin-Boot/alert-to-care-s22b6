@@ -40,10 +40,6 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return HttpStatusCode.BadRequest;
-                }
                 return _handler.AddPatientToDatabase(info, _context);
             }
             catch

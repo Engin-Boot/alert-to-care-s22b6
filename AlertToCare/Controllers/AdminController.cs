@@ -28,8 +28,6 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    return HttpStatusCode.BadRequest;
                 return _handler.AddNewIcu(Int16.Parse(BedCount), _context);
             }
             catch
@@ -43,9 +41,6 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    return HttpStatusCode.BadRequest;
-
                 return _handler.UpdateIcu(info, _context);
             }
             catch

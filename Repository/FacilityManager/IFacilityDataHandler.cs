@@ -1,6 +1,5 @@
 ﻿using DatabaseManager;
 using Models;
-using System.Collections.Generic;
 using System.Net;
 
 namespace RepositoryManager.FacilityManager

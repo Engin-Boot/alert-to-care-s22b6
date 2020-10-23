@@ -30,7 +30,7 @@ namespace RepositoryManager.VitalManager
             if (bpm < dlimits.Min)
                 return VitalStatus.Status.Below;
             else if (bpm > dlimits.Max)
-                return VitalStatus.Status.Below;
+                return VitalStatus.Status.Above;
             return VitalStatus.Status.Normal;
         }
 
