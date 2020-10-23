@@ -62,7 +62,7 @@ namespace AlertToCareTest.RepositoryTest
 
             var res = handler.GetIcuDetailsById(2, context);
 
-            Assert.True(res.BedCount == 8);
+            Assert.True(res.Id == 2);
 
         }
 
@@ -83,7 +83,7 @@ namespace AlertToCareTest.RepositoryTest
 
             var res = handler.GetAllIcuDetails(context);
 
-            Assert.True(res.FacilityList.Exists(f => f.BedCount == 8 && f.Id == 2));
+            Assert.True(res.FacilityList.Exists(f => f.Id == 2));
 
         }
 
