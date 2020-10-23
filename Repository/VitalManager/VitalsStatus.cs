@@ -18,7 +18,6 @@ namespace RepositoryManager.VitalManager
                     CheckVitalInRange(prop, prop.GetValue(info,null)));
             }
             return VitalStatusResult;
-
         }
 
         private string CheckVitalInRange(PropertyInfo prop, object input)
@@ -26,12 +25,21 @@ namespace RepositoryManager.VitalManager
             var limitprop = typeof(VitalLimits).GetProperty(prop.Name);
             var limitValue = (DoubleLimits)limitprop.GetValue(limits, null);
 
-            if (limitValue.Max!= null && (double)input > limitValue.Max)
+            if (IsAbove(input, limitValue))
                 return "Above";
-            else if (limitValue.Min!= null && (double)input < limitValue.Min)
+            if (IsBelow(input, limitValue))
                 return "Below";
             return "Normal";
+        }
 
+        private static bool IsBelow(object input, DoubleLimits limitValue)
+        {
+            return limitValue.Min != null && (double)input < limitValue.Min;
+        }
+
+        private static bool IsAbove(object input, DoubleLimits limitValue)
+        {
+            return limitValue.Max != null && (double)input > limitValue.Max;
         }
 
         private static PropertyInfo[] GetProperties<T>() => typeof(T).GetProperties();
