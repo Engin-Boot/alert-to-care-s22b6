@@ -27,7 +27,7 @@ namespace AlertToCareTest.RepositoryTest
             {
                 IcuId = 1,
                 BedId = 2,
-                Vital = new Vitals
+                Vitals = new Vitals
                 {
                     Bpm = 120,
                     Spo2 = 100,
@@ -54,7 +54,7 @@ namespace AlertToCareTest.RepositoryTest
             {
                 IcuId = 1,
                 BedId = 5,
-                Vital = new Vitals
+                Vitals = new Vitals
                 {
                     Bpm = 300,
                     Spo2 = 70,

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Models
 {
@@ -8,7 +9,7 @@ namespace Models
         public int IcuId { get; set; }
 
         public int BedId { get; set; }
-        public Vitals Vital { get; set; }
+        public Vitals Vitals { get; set; }
     }
 
     public class Vitals
@@ -20,8 +21,6 @@ namespace Models
 
     public class VitalStatus
     {
-        public enum Status { Above, Normal, Below };
-
         public Patient PatientInfo { get; set; }
         public string Bpm { get; set; }
         public string Spo2 { get; set; }
@@ -30,14 +29,14 @@ namespace Models
 
     public class VitalLimits
     {
-        public DoubleLimits BpmLimits { get; set; }
-        public double Spo2Min { get; set; }
-        public DoubleLimits RespRateLimits { get; set; }
+        public DoubleLimits Bpm { get; set; }
+        public DoubleLimits Spo2 { get; set; }
+        public DoubleLimits RespRate { get; set; }
 
     }
     public class DoubleLimits
     {
-        public double Max { get; set; }
-        public double Min { get; set; }
+        public double? Max { get; set; }
+        public double? Min { get; set; }
     }
 }
