@@ -58,7 +58,7 @@
  <table>
     <tr>
       <td> <button (click)="GetAllICUDetails()">GetALLICUDetails</button> </td>
-      <td> <button (click)=" ResetGetAllDetails()">ResetDetails</button> </td>
+      <td> <button (click)="ResetGetAllDetails()">ResetDetails</button> </td>
     </tr>
     <tr>
       <td>ICU details:</td>
@@ -67,6 +67,7 @@
  </table>
 </fieldset>
 
-<a routerLink="/home">Home Page</a>
+<a href="#" routerLink="/home">
+  <button class="tablinks" >Home Page</button></a>
 <router-outlet></router-outlet>
   

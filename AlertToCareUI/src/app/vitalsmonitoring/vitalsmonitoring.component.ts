@@ -53,7 +53,7 @@ export class VitalsmonitoringComponent implements OnInit {
      var   httpReq = new XMLHttpRequest();
      httpReq.open("POST", "http://localhost:5000/api/vitals/Monitor", true);
      httpReq.setRequestHeader('Content-type','application/json; charset=utf-8');
-   
+
      //registering callback - to get updates on status of http request
      httpReq.onreadystatechange = function () {
          console.log("callback");
@@ -61,7 +61,23 @@ export class VitalsmonitoringComponent implements OnInit {
           {
             if(httpReq.status==200)
             {
-              document.getElementById("resultvitals").innerHTML=httpReq.responseText;
+              var obj = JSON.parse(httpReq.responseText);
+              function printValues(obj) {
+                var Vitals=["Bpm:","Spo2:","RespRate:"];
+                var i=0;
+                for(var k in obj) {
+                    if(obj[k] instanceof Object) {
+                    } 
+                    else {
+                        var liTag = document.createElement("li");
+                        liTag.innerText = Vitals[i]+obj[k];
+                        document.getElementById("resultvitals").appendChild(liTag);
+                        i++;
+                    };
+                }
+            };
+            printValues(obj);
+            
             }
             else{
               document.getElementById("resultvitals").innerHTML="Request Status="+httpReq.status+" Enter appropriate Details";
