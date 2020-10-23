@@ -11,8 +11,13 @@ namespace RepositoryManager.Utilities
             SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds)
                     .Contains(BedId.ToString());
 
-        private static List<string> SpiltString(string occupiedBeds) =>
-             occupiedBeds.Split(',').ToList();
+        private static List<string> SpiltString(string occupiedBeds)
+        {
+            if (occupiedBeds == null)
+                return new List<string>();
+            return occupiedBeds.Split(',').ToList();
+        }
+
 
         public static void AddBedOccupancy(DatabaseContext _context, int IcuId, int BedId)
         {
@@ -31,11 +36,8 @@ namespace RepositoryManager.Utilities
             _context.SaveChangesAsync();
         }
 
-        private static string JoinString(List<string> beds)
-        {
-            return String.Join(",", beds);
-
-        }
+        private static string JoinString(List<string> beds) =>
+             String.Join(",", beds);
 
         public static void ChangeBedStatusToAvailable(DatabaseContext _context, int IcuId, int BedId)
         {
@@ -43,5 +45,13 @@ namespace RepositoryManager.Utilities
             Beds.Remove(BedId.ToString());
             SaveContext(_context, IcuId, JoinString(Beds));
         }
+
+        public static bool DoesIcuIdExists(DatabaseContext _context, int IcuId) =>
+             _context.Facilities.Find(IcuId) != null;
+
+        public static bool IsValidBedId(DatabaseContext _context, int BedId, int IcuId) =>
+            BedId <= _context.Facilities.Find(IcuId).BedCount;
+
     }
 }
+

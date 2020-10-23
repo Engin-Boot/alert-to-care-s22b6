@@ -9,11 +9,10 @@ namespace RepositoryManager.FacilityManager
     {
         public HttpStatusCode AddNewIcu(int TotalBeds, DatabaseContext _context)
         {
-            var info = new Facility()
+            var info = new Facility
             {
                 BedCount = TotalBeds,
-                Id = GenerateId(_context),
-                OccupiedBeds = ""
+                Id = GenerateId(_context)
             };
 
             _context.Facilities.AddAsync(info);

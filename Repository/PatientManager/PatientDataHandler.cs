@@ -10,14 +10,17 @@ namespace RepositoryManager.PatientManager
     {
         public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context)
         {
-            info.Id = GenerateId(_context);
+            if (!BedListAssist.DoesIcuIdExists(_context, info.IcuId))
+                return HttpStatusCode.NotFound;
 
-            if (info.Id > _context.Facilities.Find(info.IcuId).BedCount)
-                return HttpStatusCode.Ambiguous;
+            if (!BedListAssist.IsValidBedId(_context, info.BedId, info.IcuId))
+                return HttpStatusCode.Forbidden;
 
             if (BedListAssist.IsBedOccupied(
                 _context, info.IcuId, info.BedId))
                 return HttpStatusCode.Forbidden;
+
+            info.Id = GenerateId(_context);
 
             BedListAssist.AddBedOccupancy(_context, info.IcuId, info.BedId);
 

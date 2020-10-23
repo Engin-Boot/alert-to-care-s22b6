@@ -21,11 +21,15 @@ namespace AlertToCare.Controllers
             _handler = handler;
         }
 
-        [HttpGet("Monitor")]
+        [HttpPost("Monitor")]
         public ActionResult MonitorVitals([FromBody] VitalModel info)
         {
             try
             {
+                if (!BedListAssist.DoesIcuIdExists(_context, info.IcuId) ||
+                    !BedListAssist.IsValidBedId(_context, info.BedId, info.IcuId))
+                    return StatusCode(403);
+
                 if (!BedListAssist.IsBedOccupied(_context, info.IcuId, info.BedId))
                     return StatusCode(404);
 
