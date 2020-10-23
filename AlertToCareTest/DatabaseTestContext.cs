@@ -79,7 +79,7 @@ namespace AlertToCareTest
                             OccupiedBeds = "3"
                         };
 
-                        _context.Patients.AddRange(onep, twop, threep,fourp);
+                        _context.Patients.AddRange(onep, twop, threep, fourp);
                         _context.Facilities.AddRange(onef, twof);
 
                         _context.SaveChanges();

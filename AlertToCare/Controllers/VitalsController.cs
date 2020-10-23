@@ -1,7 +1,6 @@
 ﻿using DatabaseManager;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using RepositoryManager.Utilities;
 using RepositoryManager.VitalManager;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,11 +25,6 @@ namespace AlertToCare.Controllers
         {
             try
             {
-                if (!BedListAssist.DoesIcuIdExists(_context, info.IcuId) ||
-                    !BedListAssist.IsValidBedId(_context, info.BedId, info.IcuId) ||
-                    !BedListAssist.IsBedOccupied(_context, info.IcuId, info.BedId))
-                    return StatusCode(403);
-
                 return Ok(_handler.MonitorVitals(info, _context));
             }
             catch

@@ -56,7 +56,7 @@ namespace AlertToCareTest.ControllerTest
             };
 
             var res = controller.MonitorVitals(test);
-            Assert.IsType<StatusCodeResult>(res);
+            Assert.IsType<OkObjectResult>(res);
 
         }
 
@@ -76,7 +76,7 @@ namespace AlertToCareTest.ControllerTest
             };
 
             var res = controller.MonitorVitals(test);
-            Assert.IsType<StatusCodeResult>(res);
+            Assert.IsType<OkObjectResult>(res);
 
         }
 
