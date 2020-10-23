@@ -6,8 +6,6 @@ namespace RepositoryManager.VitalManager
 {
     public class VitalsStatus
     {
-        readonly VitalLimits limits = GetLimitValue();
-
         public VitalStatus CheckVitalStatus(Vitals info)
         {
             var VitalStatusResult = new VitalStatus();
@@ -25,7 +23,8 @@ namespace RepositoryManager.VitalManager
 
         private string CheckVitalInRange(PropertyInfo prop, object input)
         {
-            var limitValue = GetLimits(prop);
+            var limitprop = typeof(VitalLimits).GetProperty(prop.Name);
+            var limitValue = (DoubleLimits)limitprop.GetValue(limits, null);
 
             if (limitValue.Max!= null && (double)input > limitValue.Max)
                 return "Above";
@@ -37,15 +36,7 @@ namespace RepositoryManager.VitalManager
 
         private static PropertyInfo[] GetProperties<T>() => typeof(T).GetProperties();
 
-        private DoubleLimits GetLimits(PropertyInfo prop)
-        {
-            var Limitprop = typeof(VitalLimits).GetProperty(prop.Name);
-            return (DoubleLimits)Limitprop.GetValue(limits,null);
-        }
-
-        private static VitalLimits GetLimitValue()
-        {
-            return new VitalLimits
+        readonly VitalLimits limits = new VitalLimits
             {
                 RespRate = new DoubleLimits
                 {
@@ -63,6 +54,6 @@ namespace RepositoryManager.VitalManager
                     Min = 70
                 }
             };
-        }
     }
-}
+ }
+

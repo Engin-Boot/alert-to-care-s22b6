@@ -9,7 +9,7 @@ namespace Models
         public int IcuId { get; set; }
 
         public int BedId { get; set; }
-        public Vitals Vitals { get; set; }
+        public Vitals Vital { get; set; }
     }
 
     public class Vitals
