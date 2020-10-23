@@ -96,13 +96,15 @@ export class PatientadmissionComponent implements OnInit {
     //AJAX Request - Asynchronous Http Request;
    var   httpReq = new XMLHttpRequest();
     httpReq.open("GET", "http://localhost:5000/api/patient/PatientDetails/" + searchKey, true);
-  
-    //registering callback - to get updates on status of http request
+    
     httpReq.onreadystatechange = function () {
         console.log("callback");
         if (httpReq.readyState == 4) {
           if(httpReq.status==200){
-            document.getElementById("resultDashboard1").innerHTML=httpReq.responseText;
+          
+            var obj = JSON.parse(httpReq.responseText);
+            document.getElementById("resultDashboard1").innerHTML="Patient Id="+obj.id +"<br>"+"Patient Name="+obj.name +"<br>"+
+            "Contact=" +obj.contact+"<br>"+"Bed Id="+obj.bedId+"<br>"+"Icu ID="+obj.icuId;
           }
           else{
             document.getElementById("resultDashboard1").innerHTML="Request Status="+httpReq.status + "  Enter appropriate Patient Id";
@@ -120,7 +122,15 @@ export class PatientadmissionComponent implements OnInit {
         console.log("callback");
         if (httpReq.readyState == 4) {
           if(httpReq.status==200){
-            document.getElementById("resultDashboardall").innerHTML=httpReq.responseText;
+            var obj = JSON.parse(httpReq.responseText);
+            var i=0;
+            for(i=0;i<2;i++){
+                    var liTag = document.createElement("li");
+                    liTag.innerText = "Patient Id="+obj.patientList[i].id +"   Patient Name="+obj.patientList[i].name +
+                    "    Contact=" +obj.patientList[i].contact+"   Bed Id="+obj.patientList[i].bedId+"    Icu ID="+obj.patientList[i].icuId;
+                    
+                    document.getElementById("resultDashboardall").appendChild(liTag);
+            }
           }
           else{
             document.getElementById("resultDashboardall").innerHTML="Request Status="+httpReq.status + "  Enter appropriate Patient Id";
