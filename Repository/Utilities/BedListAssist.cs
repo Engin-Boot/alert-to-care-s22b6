@@ -46,10 +46,10 @@ namespace RepositoryManager.Utilities
             SaveContext(context, icuId, JoinString(beds));
         }
 
-        public static bool DoesicuIdExists(DatabaseContext context, int icuId) =>
+        public static bool DoesIcuIdExists(DatabaseContext context, int icuId) =>
              context.Facilities.Find(icuId) != null;
 
-        public static bool IsValidbedId(DatabaseContext context, int bedId, int icuId) =>
+        public static bool IsValidBedId(DatabaseContext context, int bedId, int icuId) =>
             bedId <= context.Facilities.Find(icuId).BedCount;
 
     }
