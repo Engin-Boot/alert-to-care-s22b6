@@ -7,46 +7,46 @@ namespace RepositoryManager.FacilityManager
 {
     public class FacilityDataHandler : IFacilityDataHandler
     {
-        public HttpStatusCode AddNewIcu(int TotalBeds, DatabaseContext _context)
+        public HttpStatusCode AddNewIcu(int totalBeds, DatabaseContext context)
         {
             var info = new Facility
             {
-                BedCount = TotalBeds,
-                Id = GenerateId(_context)
+                BedCount = totalBeds,
+                Id = GenerateId(context)
             };
 
-            _context.Facilities.AddAsync(info);
-            _context.SaveChangesAsync();
+            context.Facilities.AddAsync(info);
+            context.SaveChangesAsync();
 
             return HttpStatusCode.OK;
         }
 
-        public HttpStatusCode UpdateIcu(Facility info, DatabaseContext _context)
+        public HttpStatusCode UpdateIcu(Facility info, DatabaseContext context)
         {
-            var Dinfo = _context.Facilities.Find(info.Id);
+            var dinfo = context.Facilities.Find(info.Id);
 
-            if (Dinfo == null)
+            if (dinfo == null)
                 return HttpStatusCode.NotFound;
 
-            Dinfo.BedCount = info.BedCount;
-            _context.Entry(Dinfo).Property("BedCount").IsModified = true;
+            dinfo.BedCount = info.BedCount;
+            context.Entry(dinfo).Property("BedCount").IsModified = true;
 
-            _context.SaveChangesAsync();
+            context.SaveChangesAsync();
 
             return HttpStatusCode.OK;
         }
 
-        public ListOfFacility GetAllIcuDetails(DatabaseContext _context) =>
+        public ListOfFacility GetAllIcuDetails(DatabaseContext context) =>
            new ListOfFacility()
-           { FacilityList = _context.Facilities.ToList() };
+           { FacilityList = context.Facilities.ToList() };
 
-        public Facility GetIcuDetailsById(int id, DatabaseContext _context) =>
-                 _context.Facilities.Find(id);
+        public Facility GetIcuDetailsById(int id, DatabaseContext context) =>
+                 context.Facilities.Find(id);
 
-        public static int GenerateId(DatabaseContext _context)
+        private static int GenerateId(DatabaseContext context)
         {
-            if (_context.Facilities.Any())
-                return _context.Facilities.Max(f => f.Id) + 1;
+            if (context.Facilities.Any())
+                return context.Facilities.Max(f => f.Id) + 1;
             return default(int) + 1;
         }
 

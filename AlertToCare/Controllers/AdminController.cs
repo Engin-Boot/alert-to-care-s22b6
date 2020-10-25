@@ -24,11 +24,11 @@ namespace AlertToCare.Controllers
         }
 
         [HttpPost("AddIcu/{BedCount}")]
-        public HttpStatusCode AddIcu(string BedCount)
+        public HttpStatusCode AddIcu(string bedCount)
         {
             try
             {
-                return _handler.AddNewIcu(Int16.Parse(BedCount), _context);
+                return _handler.AddNewIcu(Int16.Parse(bedCount), _context);
             }
             catch
             {
@@ -50,11 +50,11 @@ namespace AlertToCare.Controllers
         }
 
         [HttpGet("IcuDetails/{IcuId}")]
-        public ActionResult GetIcuDetailsById(string IcuId)
+        public ActionResult GetIcuDetailsById(string icuId)
         {
             try
             {
-                return Ok(_handler.GetIcuDetailsById(Int16.Parse(IcuId), _context));
+                return Ok(_handler.GetIcuDetailsById(Int16.Parse(icuId), _context));
             }
             catch
             {

@@ -7,7 +7,7 @@ namespace RepositoryManager.VitalManager
 {
     public class VitalDataHandler : IVitalDataHandler
     {
-        public VitalStatus MonitorVitals(VitalModel info, DatabaseContext _context)
+        public VitalStatus MonitorVitals(VitalModel info, DatabaseContext context)
         {
             VitalLimits limits = GetLimits();
             return new VitalStatus
@@ -18,8 +18,9 @@ namespace RepositoryManager.VitalManager
                 Spo2IsOk(limits.Spo2Min, info.Vital.Spo2)),
                 RespRate = Enum.GetName(typeof(VitalStatus.Status),
                 RespRateIsOk(limits.RespRateLimits, info.Vital.RespRate)),
-                PatientInfo = _context.Patients
-                .Where(p => p.BedId == info.BedId && p.IcuId == info.IcuId)
+                PatientInfo = context.Patients
+                .Where(p => p.IcuId == info.IcuId)
+                .Where(p => p.BedId == info.BedId)
                 .FirstOrDefault()
             };
         }
@@ -34,9 +35,9 @@ namespace RepositoryManager.VitalManager
             return VitalStatus.Status.Normal;
         }
 
-        private VitalStatus.Status Spo2IsOk(double Spo2min, double Spo2)
+        private VitalStatus.Status Spo2IsOk(double spo2min, double spo2)
         {
-            if (Spo2 < Spo2min)
+            if (spo2 < spo2min)
                 return VitalStatus.Status.Below;
             return VitalStatus.Status.Normal;
 

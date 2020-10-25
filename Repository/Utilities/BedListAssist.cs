@@ -7,9 +7,9 @@ namespace RepositoryManager.Utilities
 {
     public class BedListAssist
     {
-        public static bool IsBedOccupied(DatabaseContext _context, int IcuId, int BedId) =>
-            SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds)
-                    .Contains(BedId.ToString());
+        public static bool IsBedOccupied(DatabaseContext context, int icuId, int bedId) =>
+            SpiltString(context.Facilities.Find(icuId).OccupiedBeds)
+                    .Contains(bedId.ToString());
 
         private static List<string> SpiltString(string occupiedBeds)
         {
@@ -19,38 +19,38 @@ namespace RepositoryManager.Utilities
         }
 
 
-        public static void AddBedOccupancy(DatabaseContext _context, int IcuId, int BedId)
+        public static void AddBedOccupancy(DatabaseContext context, int icuId, int bedId)
         {
-            List<string> Beds = SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds);
-            Beds.Add(BedId.ToString());
-            SaveContext(_context, IcuId, JoinString(Beds));
+            List<string> beds = SpiltString(context.Facilities.Find(icuId).OccupiedBeds);
+            beds.Add(bedId.ToString());
+            SaveContext(context, icuId, JoinString(beds));
         }
 
-        private static void SaveContext(DatabaseContext _context, int IcuId, string olist)
+        private static void SaveContext(DatabaseContext context, int icuId, string olist)
         {
 
-            var IcuEntity = _context.Facilities.Find(IcuId);
+            var IcuEntity = context.Facilities.Find(icuId);
             IcuEntity.OccupiedBeds = olist;
-            _context.Entry(IcuEntity)
+            context.Entry(IcuEntity)
                 .Property("OccupiedBeds").IsModified = true;
-            _context.SaveChangesAsync();
+            context.SaveChangesAsync();
         }
 
         private static string JoinString(List<string> beds) =>
              String.Join(",", beds);
 
-        public static void ChangeBedStatusToAvailable(DatabaseContext _context, int IcuId, int BedId)
+        public static void ChangeBedStatusToAvailable(DatabaseContext context, int icuId, int bedId)
         {
-            List<string> Beds = SpiltString(_context.Facilities.Find(IcuId).OccupiedBeds);
-            Beds.Remove(BedId.ToString());
-            SaveContext(_context, IcuId, JoinString(Beds));
+            List<string> beds = SpiltString(context.Facilities.Find(icuId).OccupiedBeds);
+            beds.Remove(bedId.ToString());
+            SaveContext(context, icuId, JoinString(beds));
         }
 
-        public static bool DoesIcuIdExists(DatabaseContext _context, int IcuId) =>
-             _context.Facilities.Find(IcuId) != null;
+        public static bool DoesicuIdExists(DatabaseContext context, int icuId) =>
+             context.Facilities.Find(icuId) != null;
 
-        public static bool IsValidBedId(DatabaseContext _context, int BedId, int IcuId) =>
-            BedId <= _context.Facilities.Find(IcuId).BedCount;
+        public static bool IsValidbedId(DatabaseContext context, int bedId, int icuId) =>
+            bedId <= context.Facilities.Find(icuId).BedCount;
 
     }
 }
