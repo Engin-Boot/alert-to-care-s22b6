@@ -96,7 +96,7 @@ export class AdminComponent implements OnInit {
                 if(httpReq.status==200) {
                  
                     var obj = JSON.parse(httpReq.responseText);
-                    document.getElementById("resultDashboardICUbyid").innerHTML="ICU Id="+obj.id +"  Bed Count="+obj.bedCount +"  Occupied Bed=" +obj.occupiedBeds;
+                    document.getElementById("resultDashboardICUbyid").innerHTML="ICU Id="+obj.id +"  Bed Count="+obj.bedCount +"  Occupied Bed Id's=" +obj.occupiedBeds;
                 }
                 else{
                   document.getElementById("resultDashboardICUbyid").innerHTML="Request Status="+httpReq.status+" Enter appropriate Icu Id";
@@ -106,16 +106,28 @@ export class AdminComponent implements OnInit {
             httpReq.send();
   }
   GetAllICUDetails(){
-
            var   httpReq = new XMLHttpRequest();
             httpReq.open("GET", "http://localhost:5000/api/admin/AllIcuDetails" , true);
           
             //registering callback - to get updates on status of http request
             httpReq.onreadystatechange = function () {
                 console.log("callback");
-                if (httpReq.readyState == 4 && httpReq.status==200) {
-                  
-                    document.getElementById("resultDashboardAllICU").innerHTML=httpReq.responseText;
+                //"facilityList":[{"id":1,"bedCount":10,"occupiedBeds":",1,2,3"},
+                if (httpReq.readyState == 4) {
+                  if(httpReq.status==200){
+                    var obj = JSON.parse(httpReq.responseText);
+                    var i=0;
+                    for(i=0;i<obj.facilityList.length;i++){
+                            var liTag = document.createElement("li");
+                            liTag.innerText = "ICU Id="+obj.facilityList[i].id +"   Bed Count="+obj.facilityList[i].bedCount +
+                            "    Occupied Bed Id's=" +obj.facilityList[i].occupiedBeds;
+                            
+                            document.getElementById("resultDashboardAllICU").appendChild(liTag);
+                    }
+                  }
+                  else{
+                   document.getElementById("resultDashboardAllICU").innerHTML="Request Status="+httpReq.status + "  Enter appropriate ICU Id";
+                 }
                 }
             }
             httpReq.send();

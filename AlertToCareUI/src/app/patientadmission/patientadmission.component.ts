@@ -124,7 +124,7 @@ export class PatientadmissionComponent implements OnInit {
           if(httpReq.status==200){
             var obj = JSON.parse(httpReq.responseText);
             var i=0;
-            for(i=0;i<2;i++){
+            for(i=0;i<obj.patientList.length;i++){
                     var liTag = document.createElement("li");
                     liTag.innerText = "Patient Id="+obj.patientList[i].id +"   Patient Name="+obj.patientList[i].name +
                     "    Contact=" +obj.patientList[i].contact+"   Bed Id="+obj.patientList[i].bedId+"    Icu ID="+obj.patientList[i].icuId;
@@ -133,8 +133,8 @@ export class PatientadmissionComponent implements OnInit {
             }
           }
           else{
-            document.getElementById("resultDashboardall").innerHTML="Request Status="+httpReq.status + "  Enter appropriate Patient Id";
-          }
+           document.getElementById("resultDashboardall").innerHTML="Request Status="+httpReq.status + "  Enter appropriate Patient Id";
+         }
         }
     }
     httpReq.send();
