@@ -28,7 +28,7 @@ namespace AlertToCareTest.ControllerTest
             {
                 IcuId = 1,
                 BedId = 2,
-                Vitals = new Vitals
+                Vital = new Vitals
                 {
                     Bpm = 120,
                     Spo2 = 100,
@@ -47,7 +47,7 @@ namespace AlertToCareTest.ControllerTest
             {
                 IcuId = 120,
                 BedId = 1000,
-                Vitals = new Vitals
+                Vital = new Vitals
                 {
                     Bpm = 120,
                     Spo2 = 100,
@@ -67,7 +67,7 @@ namespace AlertToCareTest.ControllerTest
             {
                 IcuId = 1,
                 BedId = 1,
-                Vitals = new Vitals
+                Vital = new Vitals
                 {
                     Bpm = 120,
                     Spo2 = 100,

@@ -10,7 +10,7 @@ namespace RepositoryManager.VitalManager
         public VitalStatus MonitorVitals(VitalModel info, DatabaseContext _context)
         {
             VitalsStatus Vitalcheck = new VitalsStatus();
-            var Vitals = Vitalcheck.CheckVitalStatus(info.Vitals);
+            var Vitals = Vitalcheck.CheckVitalStatus(info.Vital);
             Vitals.PatientInfo = _context.Patients
                 .Where(p => p.BedId == info.BedId && p.IcuId == info.IcuId)
                 .FirstOrDefault();

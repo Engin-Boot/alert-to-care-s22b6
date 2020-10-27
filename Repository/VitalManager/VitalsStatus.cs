@@ -34,12 +34,16 @@ namespace RepositoryManager.VitalManager
 
         private static bool IsBelow(object input, DoubleLimits limitValue)
         {
-            return limitValue.Min != null && (double)input < limitValue.Min;
+            bool value = limitValue.Min != null;
+            bool check = value && (double)input < limitValue.Min;
+            return check;
         }
 
         private static bool IsAbove(object input, DoubleLimits limitValue)
         {
-            return limitValue.Max != null && (double)input > limitValue.Max;
+            bool value = limitValue.Max != null;
+            bool check = value && (double)input > limitValue.Max;
+            return check;
         }
 
         private static PropertyInfo[] GetProperties<T>() => typeof(T).GetProperties();
