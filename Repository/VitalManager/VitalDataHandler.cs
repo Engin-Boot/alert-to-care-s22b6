@@ -11,7 +11,7 @@ namespace RepositoryManager.VitalManager
         {
             VitalsStatus Vitalcheck = new VitalsStatus();
             var Vitals = Vitalcheck.CheckVitalStatus(info.Vital);
-            Vitals.PatientInfo = _context.Patients
+            Vitals.PatientInfo = context.Patients
                 .Where(p => p.BedId == info.BedId && p.IcuId == info.IcuId)
                 .FirstOrDefault();
 
