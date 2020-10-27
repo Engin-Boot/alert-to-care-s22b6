@@ -6,9 +6,9 @@ namespace RepositoryManager.PatientManager
 {
     public interface IPatientDataHandler
     {
-        HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context);
-        HttpStatusCode RemovePatientFromDb(int id, DatabaseContext _context);
-        ListOfPatients GetAllPatients(DatabaseContext _context);
-        Patient GetPatientById(int id, DatabaseContext _context);
+        HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext context);
+        HttpStatusCode RemovePatientFromDb(int id, DatabaseContext context);
+        ListOfPatients GetAllPatients(DatabaseContext context);
+        Patient GetPatientById(int id, DatabaseContext context);
     }
 }

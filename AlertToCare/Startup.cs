@@ -30,15 +30,6 @@ namespace AlertToCare
                RepositoryManager.PatientManager.PatientDataHandler>();
             services.AddSingleton<RepositoryManager.VitalManager.IVitalDataHandler,
                RepositoryManager.VitalManager.VitalDataHandler>();
-            services.AddCors(options =>
-            {
-                options.AddPolicy(
-                  "CorsPolicy",
-                  builder => builder.WithOrigins("http://localhost:4200")
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .AllowCredentials());
-            });
 
         }
 

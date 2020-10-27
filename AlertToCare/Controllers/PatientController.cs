@@ -23,11 +23,11 @@ namespace AlertToCare.Controllers
         }
 
         [HttpGet("discharge/{PatientId}")]
-        public HttpStatusCode DishchargePatient(string PatientId)
+        public HttpStatusCode DishchargePatient(string patientId)
         {
             try
             {
-                return _handler.RemovePatientFromDb(Int16.Parse(PatientId), _context);
+                return _handler.RemovePatientFromDb(Int16.Parse(patientId), _context);
             }
             catch
             {
@@ -49,11 +49,11 @@ namespace AlertToCare.Controllers
         }
 
         [HttpGet("PatientDetails/{Pid}")]
-        public ActionResult GetPatientDetailsById(string Pid)
+        public ActionResult GetPatientDetailsById(string pid)
         {
             try
             {
-                return Ok(_handler.GetPatientById(Int16.Parse(Pid), _context));
+                return Ok(_handler.GetPatientById(Int16.Parse(pid), _context));
             }
             catch
             {

@@ -7,7 +7,7 @@ namespace RepositoryManager.VitalManager
 {
     public class VitalDataHandler : IVitalDataHandler
     {
-        public VitalStatus MonitorVitals(VitalModel info, DatabaseContext _context)
+        public VitalStatus MonitorVitals(VitalModel info, DatabaseContext context)
         {
             VitalsStatus Vitalcheck = new VitalsStatus();
             var Vitals = Vitalcheck.CheckVitalStatus(info.Vital);

@@ -6,9 +6,9 @@ namespace RepositoryManager.FacilityManager
 {
     public interface IFacilityDataHandler
     {
-        HttpStatusCode AddNewIcu(int TotalBeds, DatabaseContext _context);
-        HttpStatusCode UpdateIcu(Facility info, DatabaseContext _context);
-        ListOfFacility GetAllIcuDetails(DatabaseContext _context);
-        Facility GetIcuDetailsById(int id, DatabaseContext _context);
+        HttpStatusCode AddNewIcu(int totalBeds, DatabaseContext context);
+        HttpStatusCode UpdateIcu(Facility info, DatabaseContext context);
+        ListOfFacility GetAllIcuDetails(DatabaseContext context);
+        Facility GetIcuDetailsById(int id, DatabaseContext context);
     }
 }

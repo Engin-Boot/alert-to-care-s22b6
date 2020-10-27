@@ -8,55 +8,55 @@ namespace RepositoryManager.PatientManager
 {
     public class PatientDataHandler : IPatientDataHandler
     {
-        public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext _context)
+        public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext context)
         {
-            if (!BedListAssist.DoesIcuIdExists(_context, info.IcuId))
+            if (!BedListAssist.DoesIcuIdExists(context, info.IcuId))
                 return HttpStatusCode.NotFound;
 
-            if (!BedListAssist.IsValidBedId(_context, info.BedId, info.IcuId))
+            if (!BedListAssist.IsValidBedId(context, info.BedId, info.IcuId))
                 return HttpStatusCode.Forbidden;
 
             if (BedListAssist.IsBedOccupied(
-                _context, info.IcuId, info.BedId))
+                context, info.IcuId, info.BedId))
                 return HttpStatusCode.Forbidden;
 
-            info.Id = GenerateId(_context);
+            info.Id = GenerateId(context);
 
-            BedListAssist.AddBedOccupancy(_context, info.IcuId, info.BedId);
+            BedListAssist.AddBedOccupancy(context, info.IcuId, info.BedId);
 
-            _context.Patients.AddAsync(info);
-            _context.SaveChangesAsync();
+            context.Patients.AddAsync(info);
+            context.SaveChangesAsync();
 
             return HttpStatusCode.OK;
 
         }
 
-        public HttpStatusCode RemovePatientFromDb(int id, DatabaseContext _context)
+        public HttpStatusCode RemovePatientFromDb(int id, DatabaseContext context)
         {
-            var Dinfo = _context.Patients.Find(id);
+            var dinfo = context.Patients.Find(id);
 
-            if (Dinfo == null)
+            if (dinfo == null)
                 return HttpStatusCode.NotFound;
 
-            BedListAssist.ChangeBedStatusToAvailable(_context, Dinfo.IcuId, Dinfo.BedId);
+            BedListAssist.ChangeBedStatusToAvailable(context, dinfo.IcuId, dinfo.BedId);
 
-            _context.Remove(Dinfo);
-            _context.SaveChangesAsync();
+            context.Remove(dinfo);
+            context.SaveChangesAsync();
 
             return HttpStatusCode.OK;
         }
 
-        public ListOfPatients GetAllPatients(DatabaseContext _context) =>
+        public ListOfPatients GetAllPatients(DatabaseContext context) =>
            new ListOfPatients()
-           { PatientList = _context.Patients.ToList() };
+           { PatientList = context.Patients.ToList() };
 
-        public Patient GetPatientById(int id, DatabaseContext _context) =>
-            _context.Patients.Find(id);
+        public Patient GetPatientById(int id, DatabaseContext context) =>
+            context.Patients.Find(id);
 
-        private static int GenerateId(DatabaseContext _context)
+        private static int GenerateId(DatabaseContext context)
         {
-            if (_context.Patients.Any())
-                return _context.Patients.Max(f => f.Id) + 1;
+            if (context.Patients.Any())
+                return context.Patients.Max(f => f.Id) + 1;
             return default(int) + 1;
         }
     }

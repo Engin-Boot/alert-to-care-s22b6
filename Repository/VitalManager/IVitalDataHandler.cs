@@ -5,6 +5,6 @@ namespace RepositoryManager.VitalManager
 {
     public interface IVitalDataHandler
     {
-        VitalStatus MonitorVitals(VitalModel info, DatabaseContext _context);
+        VitalStatus MonitorVitals(VitalModel info, DatabaseContext context);
     }
 }
