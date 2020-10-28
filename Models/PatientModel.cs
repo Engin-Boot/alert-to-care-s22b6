@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using JetBrains.Annotations;
+using System.Collections.Generic;
 
 namespace Models
 {
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Patient
     {
         public int Id { get; set; }
@@ -11,6 +13,7 @@ namespace Models
         public int IcuId { get; set; }
     }
 
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ListOfPatients
     {
         public List<Patient> PatientList { get; set; }

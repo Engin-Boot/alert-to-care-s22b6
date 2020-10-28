@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
+using JetBrains.Annotations;
 
 namespace Models
 {
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class VitalModel
     {
         [Key]
@@ -12,6 +14,7 @@ namespace Models
         public Vitals Vital { get; set; }
     }
 
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Vitals
     {
         public double Bpm { get; set; }
@@ -19,6 +22,7 @@ namespace Models
         public double RespRate { get; set; }
     }
 
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class VitalStatus
     {
         public Patient PatientInfo { get; set; }
