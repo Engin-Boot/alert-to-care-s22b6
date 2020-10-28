@@ -17,7 +17,7 @@ Write-Host "Code Coverage report ..."
 Write-Host "---------------------------------"
 WriteXmlToScreen $report
 
-[xml]$doc = $report
+$doc = [xml]$report
 
 Write-Host ""
 Write-Host "---------------------------------"

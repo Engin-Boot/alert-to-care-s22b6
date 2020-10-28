@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryManager", "..\Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{8D91F18A-A4FE-4112-94FC-0827F6383F59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseManager", "..\DatabaseManager\DatabaseManager.csproj", "{49657996-9E9B-48DF-A670-DB9573F47835}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{8D91F18A-A4FE-4112-94FC-0827F6383F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D91F18A-A4FE-4112-94FC-0827F6383F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D91F18A-A4FE-4112-94FC-0827F6383F59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49657996-9E9B-48DF-A670-DB9573F47835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49657996-9E9B-48DF-A670-DB9573F47835}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49657996-9E9B-48DF-A670-DB9573F47835}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49657996-9E9B-48DF-A670-DB9573F47835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
