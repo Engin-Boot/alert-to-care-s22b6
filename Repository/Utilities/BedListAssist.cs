@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace RepositoryManager.Utilities
 {
-    public class BedListAssist
+    public class assist
     {
-        public static bool IsBedOccupied(DatabaseContext context, int icuId, int bedId) =>
+        public bool IsBedOccupied(DatabaseContext context, int icuId, int bedId) =>
             SpiltString(context.Facilities.Find(icuId).OccupiedBeds)
                     .Contains(bedId.ToString());
 
@@ -19,7 +19,7 @@ namespace RepositoryManager.Utilities
         }
 
 
-        public static void AddBedOccupancy(DatabaseContext context, int icuId, int bedId)
+        public void AddBedOccupancy(DatabaseContext context, int icuId, int bedId)
         {
             List<string> beds = SpiltString(context.Facilities.Find(icuId).OccupiedBeds);
             beds.Add(bedId.ToString());
@@ -29,9 +29,9 @@ namespace RepositoryManager.Utilities
         private static void SaveContext(DatabaseContext context, int icuId, string olist)
         {
 
-            var IcuEntity = context.Facilities.Find(icuId);
-            IcuEntity.OccupiedBeds = olist;
-            context.Entry(IcuEntity)
+            var icuEntity = context.Facilities.Find(icuId);
+            icuEntity.OccupiedBeds = olist;
+            context.Entry(icuEntity)
                 .Property("OccupiedBeds").IsModified = true;
             context.SaveChangesAsync();
         }
@@ -39,7 +39,7 @@ namespace RepositoryManager.Utilities
         private static string JoinString(List<string> beds) =>
              String.Join(",", beds);
 
-        public static void ChangeBedStatusToAvailable(DatabaseContext context, int icuId, int bedId)
+        public void ChangeBedStatusToAvailable(DatabaseContext context, int icuId, int bedId)
         {
             List<string> beds = SpiltString(context.Facilities.Find(icuId).OccupiedBeds);
             beds.Remove(bedId.ToString());

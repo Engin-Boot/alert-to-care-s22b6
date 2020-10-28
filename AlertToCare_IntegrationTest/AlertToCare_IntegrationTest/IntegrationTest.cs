@@ -1,19 +1,15 @@
-using System;
-using Xunit;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
 using System.Net;
-using System.Threading;
+using Xunit;
 
 
 namespace AlertToCare_IntegrationTest
 {
-    public class UnitTest1
+    public class IntegrationTest
     {
-        //ADMIN
-        // ADD
+
         [Fact]
         public void AddNewIcu_ValidRequestPassed_ReturnOk()
         {
@@ -85,7 +81,7 @@ namespace AlertToCare_IntegrationTest
         {
             var testItem = new Facility()
             {
-             
+
             };
             RestClient restClient = new RestClient("http://localhost:5000/api/");
             var restRequest = new RestRequest("admin/UpdateIcu", Method.PUT);
@@ -121,7 +117,7 @@ namespace AlertToCare_IntegrationTest
 
             var testItem = new Patient()
             {
-                
+
             };
             RestClient restClient = new RestClient("http://localhost:5000/api/");
             var restRequest = new RestRequest("patient/AddNewPatient/", Method.POST);
@@ -168,29 +164,29 @@ namespace AlertToCare_IntegrationTest
         //-----------------------------------------------------------------------------//
         //Vitals
         //check vital 
-       
-        //[Fact]
-        //public void VitalsCheck_ValidInput_returnOk()
-        //{
 
-        //    var testItem = new VitalModel()
-        //    {
-        //        IcuId=1,
-        //        BedId=1,
-        //        Vital =
-        //        {
-        //            Spo2=95,
-        //            Bpm=125,
-        //            RespRate=60
-        //        }
-        //    };
-        //    RestClient restClient = new RestClient("http://localhost:5000/api/");
-        //    var restRequest = new RestRequest("vitals/Monitor", Method.POST);
-        //    restRequest.AddJsonBody(JsonConvert.SerializeObject(testItem));
-        //    IRestResponse<List<VitalModel>> okResult = restClient.Execute<List<VitalModel>>(restRequest);
-        //    Assert.Equal(HttpStatusCode.OK, okResult.StatusCode);
-           
-        //}
+        [Fact]
+        public void VitalsCheck_ValidInput_returnOk()
+        {
+
+            var testItem = new VitalModel()
+            {
+                IcuId = 1,
+                BedId = 1,
+                Vital = new Vitals
+                {
+                    Spo2 = 95,
+                    Bpm = 125,
+                    RespRate = 60
+                }
+            };
+            RestClient restClient = new RestClient("http://localhost:5000/api/");
+            var restRequest = new RestRequest("vitals/Monitor", Method.POST);
+            restRequest.AddJsonBody(JsonConvert.SerializeObject(testItem));
+            IRestResponse<List<VitalModel>> okResult = restClient.Execute<List<VitalModel>>(restRequest);
+            Assert.Equal(HttpStatusCode.OK, okResult.StatusCode);
+
+        }
 
     }
 }
