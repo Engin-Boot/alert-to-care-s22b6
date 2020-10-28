@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DatabaseManager\DatabaseManager.csproj" />
+  <ItemGroup>	
+    <ProjectReference Include="..\DatabaseManager\DatabaseManager.csproj" />	
   </ItemGroup>
 
 </Project>

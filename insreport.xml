@@ -8,92 +8,78 @@
     </InspectionScope>
   </Information>
   <IssueTypes>
+    <IssueType Id="CSharpErrors" Category="C# Compiler Errors" CategoryId="CSharpErrors" Description="" Severity="ERROR" />
     <IssueType Id="ClassNeverInstantiated.Global" Category="Potential Code Quality Issues" CategoryId="CodeSmell" SubCategory="Class is never instantiated" Description="Class is never instantiated: Non-private accessibility" Severity="SUGGESTION" Global="True" WikiUrl="https://www.jetbrains.com/resharperplatform/help?Keyword=ClassNeverInstantiated.Global" />
     <IssueType Id="InconsistentNaming" Category="Constraints Violations" CategoryId="ConstraintViolation" Description="Inconsistent Naming" Severity="WARNING" WikiUrl="https://www.jetbrains.com/resharperplatform/help?Keyword=InconsistentNaming" />
     <IssueType Id="MemberCanBePrivate.Global" Category="Common Practices and Code Improvements" CategoryId="BestPractice" SubCategory="Member can be made private" Description="Member can be made private: Non-private accessibility" Severity="SUGGESTION" Global="True" WikiUrl="https://www.jetbrains.com/resharperplatform/help?Keyword=MemberCanBePrivate.Global" />
-    <IssueType Id="ReplaceWithSingleCallToFirstOrDefault" Category="Common Practices and Code Improvements" CategoryId="BestPractice" SubCategory="Replace with single call to FirstOrDefault(..)" Description="Replace with single call to FirstOrDefault(..): Replace with single call to FirstOrDefault(..)" Severity="SUGGESTION" />
+    <IssueType Id="RedundantUsingDirective" Category="Redundancies in Code" CategoryId="CodeRedundancy" Description="Redundant using directive" Severity="WARNING" WikiUrl="https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantUsingDirective" />
     <IssueType Id="UnusedAutoPropertyAccessor.Global" Category="Potential Code Quality Issues" CategoryId="CodeSmell" SubCategory="Auto-property accessor is never used" Description="Auto-property accessor is never used: Non-private accessibility" Severity="WARNING" Global="True" />
     <IssueType Id="UnusedMember.Global" Category="Redundancies in Symbol Declarations" CategoryId="DeclarationRedundancy" SubCategory="Type member is never used" Description="Type member is never used: Non-private accessibility" Severity="SUGGESTION" Global="True" WikiUrl="https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global" />
   </IssueTypes>
   <Issues>
     <Project Name="Models">
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\FacilityModel.cs" Offset="316-320" Line="14" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedMember.Global" File="..\Models\FacilityModel.cs" Offset="217-229" Line="8" Message="Property 'OccupiedBeds' is never used" />
+      <Issue TypeId="CSharpErrors" File="..\Models\FacilityModel.cs" Offset="309-313" Line="13" Message="Cannot resolve symbol 'List'" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\FacilityModel.cs" Offset="339-343" Line="13" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\PatientModel.cs" Offset="115-119" Line="7" Message="Auto-property accessor is never used" />
       <Issue TypeId="UnusedMember.Global" File="..\Models\PatientModel.cs" Offset="150-154" Line="8" Message="Property 'Name' is never used" />
       <Issue TypeId="UnusedMember.Global" File="..\Models\PatientModel.cs" Offset="192-199" Line="9" Message="Property 'Contact' is never used" />
       <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\PatientModel.cs" Offset="247-251" Line="10" Message="Auto-property accessor is never used" />
       <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\PatientModel.cs" Offset="287-291" Line="11" Message="Auto-property accessor is never used" />
       <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\PatientModel.cs" Offset="387-391" Line="16" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="152-156" Line="8" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="194-198" Line="10" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="237-241" Line="11" Message="Auto-property accessor is never used" />
-      <Issue TypeId="ClassNeverInstantiated.Global" File="..\Models\VitalModel.cs" Offset="271-277" Line="14" Message="Class 'Vitals' is never instantiated" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="319-323" Line="16" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="361-365" Line="17" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="407-411" Line="18" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="554-558" Line="25" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="595-599" Line="26" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="637-641" Line="27" Message="Auto-property accessor is never used" />
-      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="683-687" Line="28" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="212-216" Line="9" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="254-258" Line="11" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="297-301" Line="12" Message="Auto-property accessor is never used" />
+      <Issue TypeId="ClassNeverInstantiated.Global" File="..\Models\VitalModel.cs" Offset="331-337" Line="15" Message="Class 'Vitals' is never instantiated" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="379-383" Line="17" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="421-425" Line="18" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="467-471" Line="19" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="614-618" Line="26" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="655-659" Line="27" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="697-701" Line="28" Message="Auto-property accessor is never used" />
+      <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\Models\VitalModel.cs" Offset="743-747" Line="29" Message="Auto-property accessor is never used" />
     </Project>
     <Project Name="RepositoryManager">
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="240-249" Line="10" Message="Name 'TotalBeds' does not match rule 'Parameters'. Suggested name is 'totalBeds'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="267-275" Line="10" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="657-665" Line="24" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="695-700" Line="26" Message="Name 'Dinfo' does not match rule 'Local variables'. Suggested name is 'dinfo'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1105-1113" Line="39" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1281-1289" Line="43" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="MemberCanBePrivate.Global" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1353-1359" Line="46" Message="Method 'GenerateId' can be made private" />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1398-1406" Line="46" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\IFacilityDataHandler.cs" Offset="195-204" Line="9" Message="Name 'TotalBeds' does not match rule 'Parameters'. Suggested name is 'totalBeds'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\IFacilityDataHandler.cs" Offset="222-230" Line="9" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\IFacilityDataHandler.cs" Offset="298-306" Line="10" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\IFacilityDataHandler.cs" Offset="366-374" Line="11" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\FacilityManager\IFacilityDataHandler.cs" Offset="437-445" Line="12" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\IPatientDataHandler.cs" Offset="230-238" Line="9" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\IPatientDataHandler.cs" Offset="309-317" Line="10" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\IPatientDataHandler.cs" Offset="375-383" Line="11" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\IPatientDataHandler.cs" Offset="442-450" Line="12" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="310-318" Line="11" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1082-1090" Line="34" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1120-1125" Line="36" Message="Name 'Dinfo' does not match rule 'Local variables'. Suggested name is 'dinfo'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1529-1537" Line="49" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1698-1706" Line="53" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1809-1817" Line="56" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
+      <Issue TypeId="RedundantUsingDirective" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="39-57" Line="3" Message="Using directive is not required by the code and can be safely removed" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="451-469" Line="18" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="507-523" Line="19" Message="Cannot resolve symbol 'SaveChangesAsync'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="698-716" Line="26" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="883-888" Line="32" Message="Cannot resolve symbol 'Entry'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="959-975" Line="34" Message="Cannot resolve symbol 'SaveChangesAsync'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1171-1189" Line="41" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1301-1319" Line="44" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1424-1442" Line="48" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\FacilityManager\FacilityDataHandler.cs" Offset="1474-1492" Line="49" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="RedundantUsingDirective" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="75-93" Line="4" Message="Using directive is not required by the code and can be safely removed" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="869-885" Line="27" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="923-939" Line="28" Message="Cannot resolve symbol 'SaveChangesAsync'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1119-1135" Line="36" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1344-1350" Line="43" Message="Cannot resolve symbol 'Remove'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1380-1396" Line="44" Message="Cannot resolve symbol 'SaveChangesAsync'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1589-1605" Line="51" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1708-1724" Line="54" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1829-1845" Line="58" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\PatientManager\PatientDataHandler.cs" Offset="1877-1893" Line="59" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
       <Issue TypeId="ClassNeverInstantiated.Global" File="..\Repository\Utilities\BedListAssist.cs" Offset="155-168" Line="8" Message="Class 'BedListAssist' is never instantiated" />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="234-242" Line="10" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="248-253" Line="10" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="259-264" Line="10" Message="Name 'BedId' does not match rule 'Parameters'. Suggested name is 'bedId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="685-693" Line="22" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="699-704" Line="22" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="710-715" Line="22" Message="Name 'BedId' does not match rule 'Parameters'. Suggested name is 'bedId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="754-758" Line="24" Message="Name 'Beds' does not match rule 'Local variables'. Suggested name is 'beds'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="992-1000" Line="29" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1006-1011" Line="29" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1057-1066" Line="32" Message="Name 'IcuEntity' does not match rule 'Local variables'. Suggested name is 'icuEntity'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1478-1486" Line="42" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1492-1497" Line="42" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1503-1508" Line="42" Message="Name 'BedId' does not match rule 'Parameters'. Suggested name is 'bedId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1547-1551" Line="44" Message="Name 'Beds' does not match rule 'Local variables'. Suggested name is 'beds'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1791-1799" Line="49" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1805-1810" Line="49" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1929-1937" Line="52" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1943-1948" Line="52" Message="Name 'BedId' does not match rule 'Parameters'. Suggested name is 'bedId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1954-1959" Line="52" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\VitalManager\IVitalDataHandler.cs" Offset="200-208" Line="8" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="257-265" Line="10" Message="Name '_context' does not match rule 'Parameters'. Suggested name is 'context'." />
-      <Issue TypeId="ReplaceWithSingleCallToFirstOrDefault" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="803-932" Line="21" Message="Replace with single call to FirstOrDefault(..)" />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="1342-1349" Line="37" Message="Name 'Spo2min' does not match rule 'Parameters'. Suggested name is 'spo2Min'." />
-      <Issue TypeId="InconsistentNaming" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="1358-1362" Line="37" Message="Name 'Spo2' does not match rule 'Parameters'. Suggested name is 'spo2'." />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="293-311" Line="11" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="770-788" Line="24" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="InconsistentNaming" File="..\Repository\Utilities\BedListAssist.cs" Offset="1051-1060" Line="32" Message="Name 'IcuEntity' does not match rule 'Local variables'. Suggested name is 'icuEntity'." />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1063-1081" Line="32" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1161-1166" Line="34" Message="Cannot resolve symbol 'Entry'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1261-1277" Line="36" Message="Cannot resolve symbol 'SaveChangesAsync'" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1556-1574" Line="44" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1816-1834" Line="50" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\Utilities\BedListAssist.cs" Offset="1971-1989" Line="53" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="RedundantUsingDirective" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="54-72" Line="4" Message="Using directive is not required by the code and can be safely removed" />
+      <Issue TypeId="CSharpErrors" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="802-818" Line="21" Message="Module 'Microsoft.EntityFrameworkCore, Version=3.1.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60' should be referenced" />
+      <Issue TypeId="InconsistentNaming" File="..\Repository\VitalManager\VitalDataHandler.cs" Offset="1367-1374" Line="38" Message="Name 'spo2min' does not match rule 'Parameters'. Suggested name is 'spo2Min'." />
     </Project>
     <Project Name="alertToCare">
-      <Issue TypeId="InconsistentNaming" File="..\AlertToCare\Controllers\AdminController.cs" Offset="795-803" Line="27" Message="Name 'BedCount' does not match rule 'Parameters'. Suggested name is 'bedCount'." />
-      <Issue TypeId="InconsistentNaming" File="..\AlertToCare\Controllers\AdminController.cs" Offset="1500-1505" Line="53" Message="Name 'IcuId' does not match rule 'Parameters'. Suggested name is 'icuId'." />
-      <Issue TypeId="InconsistentNaming" File="..\AlertToCare\Controllers\PatientController.cs" Offset="808-817" Line="26" Message="Name 'PatientId' does not match rule 'Parameters'. Suggested name is 'patientId'." />
-      <Issue TypeId="InconsistentNaming" File="..\AlertToCare\Controllers\PatientController.cs" Offset="1543-1546" Line="52" Message="Name 'Pid' does not match rule 'Parameters'. Suggested name is 'pid'." />
       <Issue TypeId="ClassNeverInstantiated.Global" File="..\AlertToCare\Program.cs" Offset="119-126" Line="6" Message="Class 'Program' is never instantiated" />
       <Issue TypeId="MemberCanBePrivate.Global" File="..\AlertToCare\Program.cs" Offset="267-273" Line="13" Message="Method 'CreateHostBuilder' can be made private" />
       <Issue TypeId="MemberCanBePrivate.Global" File="..\AlertToCare\Startup.cs" Offset="418-424" Line="17" Message="Property 'Configuration' can be made private" />
       <Issue TypeId="UnusedAutoPropertyAccessor.Global" File="..\AlertToCare\Startup.cs" Offset="456-460" Line="17" Message="Auto-property accessor is never used" />
+      <Issue TypeId="CSharpErrors" File="..\AlertToCare\Startup.cs" Offset="712-724" Line="25" Message="Cannot resolve symbol 'AddDbContext'" />
     </Project>
   </Issues>
 </Report>

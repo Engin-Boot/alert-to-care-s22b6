@@ -8,21 +8,26 @@ namespace RepositoryManager.PatientManager
 {
     public class PatientDataHandler : IPatientDataHandler
     {
+        readonly assist assist;
+        public PatientDataHandler()
+        {
+            assist = new assist();
+        }
         public HttpStatusCode AddPatientToDatabase(Patient info, DatabaseContext context)
         {
-            if (!BedListAssist.DoesIcuIdExists(context, info.IcuId))
+            if (!assist.DoesIcuIdExists(context, info.IcuId))
                 return HttpStatusCode.NotFound;
 
-            if (!BedListAssist.IsValidBedId(context, info.BedId, info.IcuId))
+            if (!assist.IsValidBedId(context, info.BedId, info.IcuId))
                 return HttpStatusCode.Forbidden;
 
-            if (BedListAssist.IsBedOccupied(
+            if (assist.IsBedOccupied(
                 context, info.IcuId, info.BedId))
                 return HttpStatusCode.Forbidden;
 
             info.Id = GenerateId(context);
 
-            BedListAssist.AddBedOccupancy(context, info.IcuId, info.BedId);
+            assist.AddBedOccupancy(context, info.IcuId, info.BedId);
 
             context.Patients.AddAsync(info);
             context.SaveChangesAsync();
@@ -38,7 +43,7 @@ namespace RepositoryManager.PatientManager
             if (dinfo == null)
                 return HttpStatusCode.NotFound;
 
-            BedListAssist.ChangeBedStatusToAvailable(context, dinfo.IcuId, dinfo.BedId);
+            assist.ChangeBedStatusToAvailable(context, dinfo.IcuId, dinfo.BedId);
 
             context.Remove(dinfo);
             context.SaveChangesAsync();
