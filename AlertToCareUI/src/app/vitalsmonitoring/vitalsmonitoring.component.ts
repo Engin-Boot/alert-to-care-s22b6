@@ -71,6 +71,9 @@ export class VitalsmonitoringComponent implements OnInit {
                     else {
                         var liTag = document.createElement("li");
                         liTag.innerText = Vitals[i]+obj[k];
+                        if(obj[k]!="Normal"){
+                          alert(Vitals[i]+obj[k])
+                        }
                         document.getElementById("resultvitals").appendChild(liTag);
                         i++;
                     };
@@ -86,10 +89,10 @@ export class VitalsmonitoringComponent implements OnInit {
          }
      }
 
-     httpReq.send(json);
-
-      
+     httpReq.send(json);   
   }
+
+  
   ResetVitalsDetails(){
     this.icuIdVital="";
     this.bedIdVital="";
